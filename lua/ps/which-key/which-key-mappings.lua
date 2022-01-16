@@ -63,6 +63,21 @@ local mappings = {
       "Diff",
     },
   },
+
+  -- Open windows or toggles
+  o = {
+    name = "Open";
+    t = { "<cmd>ToggleTerm direction=float<cr>", "Floating Terminal" },
+    v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Terminal" },
+    h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal Terminal" },
+    T = {
+      name = "Terminal";
+      n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+      h = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+      p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+      b = { "<cmd>lua _BTOP_TOGGLE()<cr>", "Btop" },
+    },
+  },
 }
 
 wk.register(mappings, nopts)
@@ -86,12 +101,3 @@ mappings = {
 }
 
 wk.register(mappings, vopts)
-
--- Command Search
-wk.register({
-  ["<c-r><c-r>"] = { "<Plug>(TelescopeFuzzyCommandSearch)" }
-  }, {
-    mode = "c",
-    noremap = false,
-    nowait = true,
-  })

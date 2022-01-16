@@ -51,13 +51,6 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-local node = Terminal:new({ cmd = "node", hidden = true, direction = "vertical" })
-local python = Terminal:new({ cmd = "python", hidden = true, direction = "vertical" })
-local htop = Terminal:new({ cmd = "htop", hidden = true, direction = "float" })
-local btop = Terminal:new({ cmd = "btop", hidden = true, direction = "float" })
-
 -- Keymappings
 local wk_status, wk = pcall(require, "which-key")
 if wk_status then
@@ -83,4 +76,33 @@ if wk_status then
     })
 end
 
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
+function _LAZYGIT_TOGGLE()
+	lazygit:toggle()
+end
+
+local node = Terminal:new({ cmd = "node", hidden = true })
+
+function _NODE_TOGGLE()
+	node:toggle()
+end
+
+local htop = Terminal:new({ cmd = "htop", hidden = true })
+
+function _HTOP_TOGGLE()
+	htop:toggle()
+end
+
+local btop = Terminal:new({ cmd = "botp", hidden = true })
+
+function _BTOP_TOGGLE()
+	btop:toggle()
+end
+
+local python = Terminal:new({ cmd = "python", hidden = true })
+
+function _PYTHON_TOGGLE()
+	python:toggle()
+end

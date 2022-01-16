@@ -55,9 +55,6 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use {
     "folke/which-key.nvim",
-    config = function ()
-      require"ps.which-key"
-    end
   }
   use {
     "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
