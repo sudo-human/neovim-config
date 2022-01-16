@@ -11,13 +11,21 @@ local nopts = {
 }
 
 local mappings = {
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
   -- Files
   f = {
     name = "File";
     f = { "<cmd>Telescope fd<cr>", "Find Files" },
-    b = { "<cmd>Telescope buffers<cr>", "Open Buffers" },
     r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
     g = { "<cmd>Telescope git_files<cr>", "Open git tracked files" },
+    s = { "<cmd>w!<cr>", "Save file" },
+  },
+
+  -- Buffers
+  b = {
+    name = "Buffers";
+    b = { "<cmd>Telescope buffers<cr>", "Open Buffers" },
+    d = { "<cmd>Bdelete!<cr>", "Close Buffer" },
   },
 
   -- Help
@@ -49,6 +57,8 @@ local mappings = {
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line{ full = true }<cr>", "Blame" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
