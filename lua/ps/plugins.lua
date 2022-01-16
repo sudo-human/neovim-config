@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
-  use 'lewis6991/impatient.nvim'
+  use "lewis6991/impatient.nvim"
   use {
     "kyazdani42/nvim-tree.lua",
     config = function() require"ps.nvim-tree" end
@@ -68,6 +68,14 @@ return packer.startup(function(use)
     "catppuccin/nvim",
     as = "catppuccin"
   })
+
+  -- Lualine
+  use {
+    "nvim-lualine/lualine.nvim",
+    config = function ()
+      require "ps.lualine"
+    end
+  }
 
   -- Complition
   use "hrsh7th/cmp-nvim-lsp"
@@ -91,10 +99,9 @@ return packer.startup(function(use)
   }
   -- Telescope
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
+    "nvim-telescope/telescope.nvim",
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -116,7 +123,7 @@ return packer.startup(function(use)
   use {
     "lewis6991/gitsigns.nvim",
     config = function ()
-      require"ps.gitsigns"
+      require "ps.gitsigns"
     end
   }
 
