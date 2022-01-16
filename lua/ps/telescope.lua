@@ -104,7 +104,6 @@ telescope.setup {
 }
 
 -- Load Extensions
-pcall(require("telescope").load_extension, "fzf")
 
 
 -- Keymappings
