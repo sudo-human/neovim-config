@@ -51,31 +51,6 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
--- Keymappings
-local wk_status, wk = pcall(require, "which-key")
-if wk_status then
-  wk.register({
-    o = {
-      name = "Open";
-      t = { "<cmd>ToggleTerm direction=float<cr>", "Floating Terminal" },
-      v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Terminal" },
-      h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal Terminal" },
-      T = {
-        name = "Terminal";
-        g = { function () lazygit:toggle() end, "LazyGit" },
-        n = { function () node:toggle() end, "Node" },
-        p = { function () python:toggle() end, "Python" },
-        h = { function () htop:toggle() end, "Htop" },
-        b = { function () btop:toggle() end, "Btop" },
-      },
-    },
-  }, {
-      mode = "n",
-      prefix = "<leader>",
-      nowait = true,
-    })
-end
-
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
