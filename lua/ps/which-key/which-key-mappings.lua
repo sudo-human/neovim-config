@@ -12,6 +12,7 @@ local nopts = {
 
 local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["P"] = { "<cmd>Telescope projects<cr>", "Open Project" },
 
   -- Files
   f = {
@@ -39,6 +40,7 @@ local mappings = {
   -- Search
   s = {
     name = "Search";
+    f = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find in buffer" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },

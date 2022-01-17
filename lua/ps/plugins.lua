@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use {
     "kyazdani42/nvim-tree.lua",
-    config = function() require"ps.nvim-tree" end
+    config = function() require "ps.nvim-tree" end
   }
   use {
     "akinsho/bufferline.nvim",
@@ -108,6 +108,14 @@ return packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
   }
   use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+
+  -- Project
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function ()
+      require "ps.project"
+    end
+  }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
