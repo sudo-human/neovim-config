@@ -52,7 +52,13 @@ return packer.startup(function(use)
     "kyazdani42/nvim-tree.lua",
     config = function() require"ps.nvim-tree" end
   }
-  use "akinsho/bufferline.nvim"
+  use {
+    "akinsho/bufferline.nvim",
+    config = function ()
+      require "ps.bufferline"
+    end
+  }
+
   use {
     "folke/which-key.nvim",
   }
