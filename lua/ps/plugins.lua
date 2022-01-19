@@ -91,7 +91,6 @@ return packer.startup(function(use)
   use "hrsh7th/nvim-cmp"
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/vim-vsnip"
   use "onsails/lspkind-nvim"
   use "L3MON4D3/LuaSnip"
   use "saadparwaiz1/cmp_luasnip"
@@ -132,6 +131,14 @@ return packer.startup(function(use)
     end
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+
+  use {
+    "SmiteshP/nvim-gps",
+    config = function ()
+      require("ps.nvim-gps")
+    end
+  }
 
   -- Git
   use {
