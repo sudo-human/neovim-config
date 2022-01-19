@@ -1,6 +1,15 @@
 local lsp_installer_status, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not lsp_installer_status then return end
 
+local nlspsettings_status, nlspsettings = pcall(require, "nlspsettings")
+if not nlspsettings_status then return end
+
+nlspsettings.setup({
+  config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+  local_settings_root_markers = { '.git' },
+  jsonls_append_default_schemas = true
+})
+
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
