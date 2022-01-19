@@ -29,3 +29,13 @@ lualine.setup {
   tabline = {},
   extensions = {}
 }
+
+vim.api.nvim_exec(
+    [[
+function! DisableST()
+  return " "
+endfunction
+au BufEnter NvimTree setlocal statusline=%!DisableST()
+]],
+    false
+)
