@@ -83,6 +83,14 @@ return packer.startup(function(use)
     end
   }
 
+  -- Feline
+  -- use {
+  --   "feline-nvim/feline.nvim",
+  --   config = function ()
+  --     require "ps.feline"
+  --   end
+  -- }
+
   -- Complition
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
