@@ -76,20 +76,20 @@ return packer.startup(function(use)
   })
 
   -- Lualine
-  use {
-    "nvim-lualine/lualine.nvim",
-    config = function ()
-      require "ps.lualine"
-    end
-  }
+  -- use {
+  --   "nvim-lualine/lualine.nvim",
+  --   config = function ()
+  --     require "ps.lualine"
+  --   end
+  -- }
 
   -- Feline
-  --use {
-  --  "feline-nvim/feline.nvim",
-  --  config = function ()
-  --    require "ps.feline"
-  --  end
-  --}
+  use {
+    "feline-nvim/feline.nvim",
+    config = function ()
+      require "ps.feline"
+    end
+  }
 
   -- Complition
   use "hrsh7th/cmp-nvim-lsp"
