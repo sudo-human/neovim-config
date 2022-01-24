@@ -141,6 +141,14 @@ return packer.startup(function(use)
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
+  -- Comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require "ps.comment"
+    end
+  }
+
   use {
     "SmiteshP/nvim-gps",
     config = function ()
