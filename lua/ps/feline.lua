@@ -342,7 +342,7 @@ components.active[2][1] = {
 		fg = sett.extras,
 		bg = sett.bkg
 	},
-	icon = "   ",
+	icon = "   ",
 	left_sep = invi_sep,
 	right_sep = invi_sep,
 }
