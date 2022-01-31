@@ -52,8 +52,8 @@ local components = {
     hl = {
       fg = function(buffer)
         return
-          (mappings.is_picking_focus() and yellow)
-          or (mappings.is_picking_close() and red)
+          (mappings.is_picking_focus() and clrs.yellow)
+          or (mappings.is_picking_close() and clrs.red)
           or buffer.devicon.color
       end,
       style = function(_)
@@ -131,7 +131,7 @@ local components = {
     end,
     hl = {
       fg = function(buffer)
-        return buffer.is_modified and green or nil
+        return buffer.is_modified and clrs.green or nil
       end
     },
     delete_buffer_on_left_click = true,
