@@ -5,9 +5,6 @@ local comments_fg = get_hex('Comment', 'fg')
 local errors_fg = get_hex('DiagnosticError', 'fg')
 local warnings_fg = get_hex('DiagnosticWarn', 'fg')
 
-local red = vim.g.terminal_color_1
-local yellow = vim.g.terminal_color_3
-
 local catppuccin, cat_colors = pcall(require,"catppuccin.api.colors")
 if not catppuccin then
   return
@@ -167,7 +164,7 @@ require('cokeline').setup({
     components.space,
     components.devicon,
     components.space,
-    components.index,
+    -- components.index,
     components.unique_prefix,
     components.filename,
     components.diagnostics,
