@@ -15,6 +15,7 @@ local clrs = cat_colors.get_colors()
 -- settings
 local sett = {
 	bkg = clrs.black3,
+  unbkg = clrs.black2,
 	diffs = clrs.mauve,
 	extras = clrs.gray1,
 	curr_file = clrs.maroon,
@@ -154,12 +155,12 @@ require('cokeline').setup({
     },
     unfocused = {
       fg = sett.extras,
-      bg = sett.bkg,
+      bg = sett.unbkg,
     },
   },
 
   components = {
-    components.space,
+    -- components.space,
     components.separator,
     components.space,
     components.devicon,
