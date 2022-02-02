@@ -39,12 +39,13 @@ keymap('n', '<S-h>',     '<Plug>(cokeline-focus-prev)',  { silent = true })
 -- keymap("n", "<S-h>", ":bnext<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
 -- Ohhh lala re Ohh lala re
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+keymap("n", "Y", "y$", opts)
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
