@@ -12,7 +12,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
+    winblend = 10,
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -86,7 +86,7 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    fd = themes.get_ivy { hidden = false, sorting_strategy = "ascending" },
+    fd = themes.get_ivy { hidden = false, sorting_strategy = "ascending" , winblend = 10},
     current_buffer_fuzzy_find = themes.get_ivy { hidden = false , winblend = 10},
   },
   extensions = {
