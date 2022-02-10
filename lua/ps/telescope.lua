@@ -86,8 +86,8 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    fd = themes.get_ivy { hidden = false, sorting_strategy = "ascending" , winblend = 10},
-    current_buffer_fuzzy_find = themes.get_ivy { hidden = false , winblend = 10},
+    fd = themes.get_ivy { hidden = true, sorting_strategy = "ascending" , winblend = 10},
+    current_buffer_fuzzy_find = themes.get_ivy { hidden = true , winblend = 10},
   },
   extensions = {
     -- Your extension configuration goes here:
