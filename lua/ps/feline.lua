@@ -289,45 +289,45 @@ components.active[1][14] = {
 }
 
 -- workspace loader
-components.active[1][15] = {
-	provider = function()
-		local Lsp = vim.lsp.util.get_progress_messages()[1]
-
-		if Lsp then
-			local msg = Lsp.message or ""
-			local percentage = Lsp.percentage or 0
-			local title = Lsp.title or ""
-			local spinners = {
-				"",
-				"",
-				"",
-			}
-			local success_icon = {
-				"",
-				"",
-				"",
-			}
-			local ms = vim.loop.hrtime() / 1000000
-			local frame = math.floor(ms / 120) % #spinners
-
-			if percentage >= 70 then
-				return string.format(" %%<%s %s %s (%s%%%%) ", success_icon[frame + 1], title, msg, percentage)
-			end
-
-			return string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
-		end
-
-		return ""
-	end,
-	enabled = shortline or function(winid)
-		return vim.api.nvim_win_get_width(winid) > 80
-	end,
-	hl = {
-		fg = clrs.rosewater,
-		bg = sett.bkg
-	},
-  left_sep = invi_sep,
-}
+-- components.active[1][15] = {
+-- 	provider = function()
+-- 		local Lsp = vim.lsp.util.get_progress_messages()[1]
+--
+-- 		if Lsp then
+-- 			local msg = Lsp.message or ""
+-- 			local percentage = Lsp.percentage or 0
+-- 			local title = Lsp.title or ""
+-- 			local spinners = {
+-- 				"",
+-- 				"",
+-- 				"",
+-- 			}
+-- 			local success_icon = {
+-- 				"",
+-- 				"",
+-- 				"",
+-- 			}
+-- 			local ms = vim.loop.hrtime() / 1000000
+-- 			local frame = math.floor(ms / 120) % #spinners
+--
+-- 			if percentage >= 70 then
+-- 				return string.format(" %%<%s %s %s (%s%%%%) ", success_icon[frame + 1], title, msg, percentage)
+-- 			end
+--
+-- 			return string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
+-- 		end
+--
+-- 		return ""
+-- 	end,
+-- 	enabled = shortline or function(winid)
+-- 		return vim.api.nvim_win_get_width(winid) > 80
+-- 	end,
+-- 	hl = {
+-- 		fg = clrs.rosewater,
+-- 		bg = sett.bkg
+-- 	},
+--   left_sep = invi_sep,
+-- }
 
 -- ######## Left
 
