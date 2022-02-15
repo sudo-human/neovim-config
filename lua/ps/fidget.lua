@@ -4,6 +4,6 @@ if not status then return end
 
 fidget.setup {
   text = {
-    spinner = "square_corners"
+    spinner = "dots"
   }
 }
