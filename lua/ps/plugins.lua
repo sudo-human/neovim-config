@@ -184,6 +184,12 @@ return packer.startup(function(use)
       require "ps.diffview"
     end
   }
+  use { 'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require "ps.neogit"
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
