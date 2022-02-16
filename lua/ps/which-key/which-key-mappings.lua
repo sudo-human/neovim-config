@@ -19,7 +19,8 @@ local mappings = {
   -- Files
   f = {
     name = "File";
-    f = { "<cmd>Telescope fd<cr>", "Find Files" },
+    -- f = { "<cmd>Telescope fd<cr>", "Find Files" },
+    f = { "<cmd>lua require'telescope.builtin'.find_files({ file_ignore_patterns = {'^node_modules/', '^.git/', '^.cache', '%.o', '%.a', '%.out', '%.class', '%.pdf', '%.mkv', '%.mp4', '%.zip'}})<cr>", "Find Files" },
     r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
     g = { "<cmd>Telescope git_files<cr>", "Open git tracked files" },
     s = { "<cmd>w!<cr>", "Save file" },
