@@ -329,6 +329,12 @@ components.active[1][14] = {
 --   left_sep = invi_sep,
 -- }
 
+components.active[1][15] = {
+  hl = {
+    bg = sett.bkg
+  }
+}
+
 -- ######## Left
 
 -- ######## Right
