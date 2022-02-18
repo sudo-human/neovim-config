@@ -52,6 +52,12 @@ return packer.startup(function(use)
     "kyazdani42/nvim-tree.lua",
     config = function() require "ps.nvim-tree" end
   }
+  use {
+    "ThePrimeagen/harpoon",
+    config = function ()
+      require "ps.harpoon"
+    end
+  }
   -- use {
   --   "akinsho/bufferline.nvim",
   --   config = function ()

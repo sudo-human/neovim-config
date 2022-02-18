@@ -31,10 +31,14 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- Navigate buffers
 keymap("n", "<S-l>", "<Plug>(cokeline-focus-next)",  { silent = true })
 keymap("n", "<S-h>", "<Plug>(cokeline-focus-prev)",  { silent = true })
 
--- Navigate buffers
+-- Harpoon
+keymap("n", "<C-=>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "<C-->", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+
 -- keymap("n", "<S-l>", ":bprevious<CR>", opts)
 -- keymap("n", "<S-h>", ":bnext<CR>", opts)
 

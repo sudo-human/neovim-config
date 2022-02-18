@@ -50,6 +50,15 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
+  -- Harpoon
+  ["'"] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon mark" },
+  ["m"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon popup" },
+  ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Harpoon 1" },
+  ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Harpoon 2" },
+  ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Harpoon 3" },
+  ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Harpoon 4" },
+  ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Harpoon 5" },
+
   -- Vim
   v = {
     name = "Vim";
