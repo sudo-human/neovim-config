@@ -11,7 +11,7 @@ local nopts = {
 }
 
 local mappings = {
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Open Project" },
   ["p"] = { "<Plug>(cokeline-switch-prev)", "Switch buffer previous" },
   ["n"] = { "<Plug>(cokeline-switch-next)", "Switch buffer next" },
