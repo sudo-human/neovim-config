@@ -36,8 +36,8 @@ keymap("n", "<S-l>", "<Plug>(cokeline-focus-next)",  { silent = true })
 keymap("n", "<S-h>", "<Plug>(cokeline-focus-prev)",  { silent = true })
 
 -- Harpoon
-keymap("n", "<C-=>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
-keymap("n", "<C-->", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+keymap("n", "<C-n>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 -- keymap("n", "<S-l>", ":bprevious<CR>", opts)
 -- keymap("n", "<S-h>", ":bnext<CR>", opts)
