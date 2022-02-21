@@ -11,10 +11,12 @@ local nopts = {
 }
 
 local mappings = {
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Open Project" },
   ["p"] = { "<Plug>(cokeline-switch-prev)", "Switch buffer previous" },
   ["n"] = { "<Plug>(cokeline-switch-next)", "Switch buffer next" },
+  ["j"] = { "<cmd>cnext<cr>", "Quickfix next" },
+  ["k"] = { "<cmd>cprev<cr>", "Quickfix prev" },
+  ["q"] = { "<cmd>copen<CR>", "Open Quickfix list" },
 
   -- Files
   f = {
