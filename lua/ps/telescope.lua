@@ -105,4 +105,5 @@ telescope.setup {
 
 -- Load Extensions
 pcall(telescope.load_extension, "fzf")
+pcall(telescope.load_extension, "aerial")
 pcall(telescope.load_extension, "harpoon")
