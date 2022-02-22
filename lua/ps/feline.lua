@@ -348,15 +348,15 @@ components.active[2][1] = {
 		fg = sett.extras,
 		bg = sett.bkg
 	},
-	icon = "   ",
+	icon = "  ",
 	left_sep = invi_sep,
-	right_sep = invi_sep,
+  right_sep = invi_sep,
 }
 
 components.active[2][2] = {
 	provider = function()
 		if next(vim.lsp.buf_get_clients()) ~= nil then
-			return " "
+			return " "
 		else
 			return ""
 		end
