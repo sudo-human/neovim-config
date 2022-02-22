@@ -151,6 +151,12 @@ return packer.startup(function(use)
       require "ps.fidget"
     end
   }
+  use {
+    "stevearc/aerial.nvim",
+    config = function ()
+      require "ps.aerial"
+    end
+  }
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
