@@ -58,6 +58,15 @@ return packer.startup(function(use)
       require "ps.harpoon"
     end
   }
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Code/'}
+      }
+    end
+  }
   -- use {
   --   "akinsho/bufferline.nvim",
   --   config = function ()
