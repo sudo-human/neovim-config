@@ -16,7 +16,9 @@ local mappings = {
   ["n"] = { "<Plug>(cokeline-switch-next)", "Switch buffer next" },
   ["j"] = { "<cmd>cnext<cr>", "Quickfix next" },
   ["k"] = { "<cmd>cprev<cr>", "Quickfix prev" },
-  ["q"] = { "<cmd>copen<CR>", "Open Quickfix list" },
+  ["q"] = { "<cmd>copen<cr>", "Open Quickfix list" },
+
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Open NvimTree" },
 
   -- Files
   f = {

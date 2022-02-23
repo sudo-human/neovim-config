@@ -458,4 +458,21 @@ components.active[2][6] = {
 
 feline.setup({
 	components = components,
+  force_inactive = {
+    filetypes = {
+      '^NvimTree$',
+      '^packer$',
+      '^startify$',
+      '^fugitive$',
+      '^fugitiveblame$',
+      '^qf$',
+      '^help$',
+      '^aerial$',
+    },
+    buftypes = {
+      '^terminal$',
+      '^netrw$'
+    },
+    bufnames = {}
+  }
 })

@@ -1,3 +1,8 @@
+local status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not status_ok then
+  return
+end
+
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
@@ -20,17 +25,6 @@ vim.g.nvim_tree_icons = {
     symlink = "",
   },
 }
-
--- Keymaps for NvimTree
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-keymap("n", "<C-e>", "<Cmd>NvimTreeToggle<CR>", opts)
-keymap("i", "<C-e>", "<Cmd>NvimTreeToggle<CR><Esc>", opts)
-
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
