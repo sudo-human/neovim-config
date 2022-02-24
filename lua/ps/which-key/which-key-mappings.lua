@@ -16,9 +16,6 @@ local mappings = {
   ["n"] = { "<Plug>(cokeline-switch-next)", "Switch buffer next" },
   ["j"] = { "<cmd>cnext<cr>", "Quickfix next" },
   ["k"] = { "<cmd>cprev<cr>", "Quickfix prev" },
-  ["q"] = { "<cmd>copen<cr>", "Open Quickfix list" },
-
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Open NvimTree" },
 
   -- Files
   f = {
@@ -133,6 +130,8 @@ local mappings = {
     t = { "<cmd>ToggleTerm direction=float<cr>", "Floating Terminal" },
     v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Terminal" },
     h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal Terminal" },
+    q = { "<cmd>copen<cr>", "Open Quickfix list" },
+    e = { "<cmd>NvimTreeToggle<cr>", "Open NvimTree" },
     T = {
       name = "Terminal";
       n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
