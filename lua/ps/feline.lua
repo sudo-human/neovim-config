@@ -341,8 +341,8 @@ components.active[1][15] = {
 
 components.active[2][1] = {
 	provider = "git_branch",
-	enabled = shortline or function(winid)
-		return vim.api.nvim_win_get_width(winid) > 70
+	enabled = shortline or function()
+		return vim.api.nvim_win_get_width(0) > 70
 	end,
 	hl = {
 		fg = sett.extras,
@@ -416,8 +416,8 @@ components.active[2][5] = {
 		end
 		return " " .. icon .. " " .. filename .. " "
 	end,
-	enabled = shortline or function(winid)
-		return vim.api.nvim_win_get_width(winid) > 70
+	enabled = shortline or function()
+		return vim.api.nvim_win_get_width(0) > 70
 	end,
 	hl = {
 		fg = sett.bkg,
@@ -438,8 +438,8 @@ components.active[2][6] = {
 		return "  " .. dir_name .. " "
 	end,
 
-	enabled = shortline or function(winid)
-		return vim.api.nvim_win_get_width(winid) > 80
+	enabled = shortline or function()
+		return vim.api.nvim_win_get_width(0) > 80
 	end,
 
 	hl = {
