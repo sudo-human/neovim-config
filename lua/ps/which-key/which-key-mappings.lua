@@ -11,7 +11,7 @@ local nopts = {
 }
 
 local mappings = {
-  ["P"] = { "<cmd>Telescope projects<cr>", "Open Project" },
+  ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   ["p"] = { "<Plug>(cokeline-switch-prev)", "Switch buffer previous" },
   ["n"] = { "<Plug>(cokeline-switch-next)", "Switch buffer next" },
   ["j"] = { "<cmd>cnext<cr>", "Quickfix next" },
@@ -22,14 +22,15 @@ local mappings = {
     name = "File";
     f = { "<cmd>Telescope fd<cr>", "Find Files" },
     r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
-    g = { "<cmd>Telescope git_files<cr>", "Open git tracked files" },
+    g = { "<cmd>Telescope git_files<cr>", "Git tracked files" },
     s = { "<cmd>w!<cr>", "Save file" },
+    b = { "<cmd>Telescope file_browser<cr>", "Telescope file browser" },
   },
 
   -- Buffers
   b = {
     name = "Buffers";
-    b = { "<cmd>Telescope buffers<cr>", "Open Buffers" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     d = { "<cmd>bdelete!<cr>", "Close Buffer" },
   },
 
@@ -70,7 +71,7 @@ local mappings = {
   g = {
     name = "Git";
     g = { "<cmd>lua require 'neogit'.open()<cr>", "Neogit" },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    o = { "<cmd>Telescope git_status<cr>", "Git Status" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -115,7 +116,7 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Diagnostics in locallist" },
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
@@ -131,8 +132,8 @@ local mappings = {
     t = { "<cmd>ToggleTerm direction=float<cr>", "Floating Terminal" },
     v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Terminal" },
     h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal Terminal" },
-    q = { "<cmd>copen<cr>", "Open Quickfix list" },
-    e = { "<cmd>NvimTreeToggle<cr>", "Open NvimTree" },
+    q = { "<cmd>copen<cr>", "Quickfix list" },
+    e = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
     T = {
       name = "Terminal";
       n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },

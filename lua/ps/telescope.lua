@@ -101,6 +101,12 @@ telescope.setup {
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    file_browser = {
+      layout_config = {
+        prompt_position = 'top',
+      },
+      sorting_strategy = 'ascending',
+    }
   },
 }
 
