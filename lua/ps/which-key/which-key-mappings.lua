@@ -93,7 +93,8 @@ local mappings = {
   -- LSP
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    a = { "<cmd>Telescope lsp_code_actions<cr>", "Code Action" },
     d = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",

@@ -108,3 +108,4 @@ telescope.setup {
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "aerial")
 pcall(telescope.load_extension, "harpoon")
+pcall(telescope.load_extension, "file_browser")
