@@ -92,10 +92,10 @@ local components = {
     hl = {
       style = function(buffer)
         return
-          ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
-            and 'bold,underline')
-          or (buffer.is_focused and 'bold')
-          or (buffer.diagnostics.errors ~= 0 and 'underline')
+          -- ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
+          --   and 'bold,underline')
+          (buffer.is_focused and 'bold')
+          -- or (buffer.diagnostics.errors ~= 0 and 'underline')
           or nil
       end
     },
