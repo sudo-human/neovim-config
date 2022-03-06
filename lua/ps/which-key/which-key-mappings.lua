@@ -24,7 +24,7 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
     g = { "<cmd>Telescope git_files<cr>", "Git tracked files" },
     s = { "<cmd>w!<cr>", "Save file" },
-    b = { "<cmd>Telescope file_browser<cr>", "Telescope file browser" },
+    b = { "<cmd>Telescope file_browser path=%:p:h<cr>", "Telescope file browser" },
   },
 
   -- Buffers
