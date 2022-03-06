@@ -149,14 +149,20 @@ require('cokeline').setup({
   },
 
   default_hl = {
-    focused = {
-      fg = clrs.rosewater,
-      bg = sett.bkg,
-    },
-    unfocused = {
-      fg = sett.extras,
-      bg = sett.unbkg,
-    },
+    fg = function (buffer)
+      if buffer.is_focused then
+        return clrs.rosewater
+      else
+        return sett.extras
+      end
+    end,
+    bg = function (buffer)
+      if buffer.is_focused then
+        return sett.bkg
+      else
+        return sett.unbkg
+      end
+    end,
   },
 
   components = {
