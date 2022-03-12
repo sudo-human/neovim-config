@@ -65,7 +65,7 @@ aerial.setup({
   -- default collapsed icon. The default icon set is determined by the
   -- "nerd_font" option below.
   -- If you have lspkind-nvim installed, aerial will use it for icons.
-  icons = {},
+  -- icons = {},
 
   -- Control which windows and buffers aerial should ignore.
   -- If close_behavior is "global", focusing an ignored window/buffer will
@@ -123,7 +123,7 @@ aerial.setup({
   -- max_value = {40, 0.2} means "the lesser of 40 columns or 20% of total"
   max_width = { 40, 0.2 },
   width = nil,
-  min_width = 10,
+  min_width = 30,
 
   -- Set default symbol icons to use patched font icons (see https://www.nerdfonts.com/)
   -- "auto" will set it to true if nvim-web-devicons or lspkind-nvim is installed.
