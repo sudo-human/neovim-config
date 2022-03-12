@@ -47,20 +47,18 @@ local components = {
           and buffer.pick_letter .. ' '
            or buffer.devicon.icon
     end,
-    hl = {
-      fg = function(buffer)
-        return
-          (mappings.is_picking_focus() and clrs.yellow)
-          or (mappings.is_picking_close() and clrs.red)
-          or buffer.devicon.color
-      end,
-      style = function(_)
-        return
-          (mappings.is_picking_focus() or mappings.is_picking_close())
-          and 'italic,bold'
-           or nil
-      end,
-    },
+    fg = function(buffer)
+      return
+      (mappings.is_picking_focus() and clrs.yellow)
+      or (mappings.is_picking_close() and clrs.red)
+      or buffer.devicon.color
+    end,
+    style = function(_)
+      return
+      (mappings.is_picking_focus() or mappings.is_picking_close())
+      and 'italic,bold'
+      or nil
+    end,
     truncation = { priority = 1 }
   },
 
@@ -75,10 +73,8 @@ local components = {
     text = function(buffer)
       return buffer.unique_prefix
     end,
-    hl = {
-      fg = comments_fg,
-      style = 'italic',
-    },
+    fg = comments_fg,
+    style = 'italic',
     truncation = {
       priority = 3,
       direction = 'left',
@@ -89,16 +85,14 @@ local components = {
     text = function(buffer)
       return buffer.filename
     end,
-    hl = {
-      style = function(buffer)
-        return
-          -- ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
-          --   and 'bold,underline')
-          (buffer.is_focused and 'bold')
-          -- or (buffer.diagnostics.errors ~= 0 and 'underline')
-          or nil
-      end
-    },
+    style = function(buffer)
+      return
+      -- ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
+      --   and 'bold,underline')
+      (buffer.is_focused and 'bold')
+      -- or (buffer.diagnostics.errors ~= 0 and 'underline')
+      or nil
+    end,
     truncation = {
       priority = 2,
       direction = 'left',
@@ -112,14 +106,12 @@ local components = {
         or (buffer.diagnostics.warnings ~= 0 and '  ' .. buffer.diagnostics.warnings)
         or ''
     end,
-    hl = {
-      fg = function(buffer)
-        return
-          (buffer.diagnostics.errors ~= 0 and errors_fg)
-          or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
-          or nil
-      end,
-    },
+    fg = function(buffer)
+      return
+      (buffer.diagnostics.errors ~= 0 and errors_fg)
+      or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
+      or nil
+    end,
     truncation = { priority = 1 },
   },
 
@@ -127,11 +119,9 @@ local components = {
     text = function(buffer)
       return buffer.is_modified and '●' or ''
     end,
-    hl = {
-      fg = function(buffer)
-        return buffer.is_modified and clrs.green or nil
-      end
-    },
+    fg = function(buffer)
+      return buffer.is_modified and clrs.green or nil
+    end,
     delete_buffer_on_left_click = true,
     truncation = { priority = 1 },
   },
@@ -167,7 +157,7 @@ require('cokeline').setup({
 
   components = {
     -- components.space,
-    components.separator,
+    -- components.separator,
     components.space,
     components.devicon,
     components.space,
