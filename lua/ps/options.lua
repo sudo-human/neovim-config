@@ -34,9 +34,10 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  grepprg="rg --vimgrep --no-heading --smart-case",
-  grepformat="%f:%l:%c:%m",
-  sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+  grepprg = "rg --vimgrep --no-heading --smart-case",
+  grepformat = "%f:%l:%c:%m",
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal",
+  laststatus = 3,
 }
 
 vim.opt.shortmess:append "c"
