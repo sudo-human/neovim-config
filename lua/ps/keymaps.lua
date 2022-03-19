@@ -76,3 +76,13 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- Debug mappings
+vim.keymap.set({"n", "i"}, "<F5>", require"dap".continue, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F6>", require"dap".run_last, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F7>", require"dapui".close, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F8>", require"dap".terminate, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F1>", require"dap".step_over, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F2>", require"dap".step_into, { silent = true, noremap = true })
+vim.keymap.set({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
+

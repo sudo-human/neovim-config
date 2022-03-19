@@ -126,6 +126,15 @@ local mappings = {
     r = { "<cmd>Telescope lsp_references<cr>", "References", },
   },
 
+  -- Debug
+  d = {
+
+    b = { function() require'dap'.toggle_breakpoint() end, "Breakpoint" },
+    B = { function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, "Conditional breakpoint" },
+    l = { function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, "Log point" },
+    C = { function() require'dap'.clear_breakpoints() end, "Clear breakpoints" },
+  },
+
   -- Open windows or toggles
   o = {
     name = "Open";

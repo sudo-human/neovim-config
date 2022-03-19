@@ -221,13 +221,17 @@ return packer.startup(function(use)
       require "ps.neogit"
     end
   }
-  --
-  -- use {
-  --   'mfussenegger/nvim-dap',
-  --   config = function ()
-  --     require "ps.dap"
-  --   end
-  -- }
+
+  -- Dap
+  use {
+    "mfussenegger/nvim-dap",
+    config = function ()
+      require "ps.dap"
+    end
+  }
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
