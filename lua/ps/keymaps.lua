@@ -1,9 +1,9 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -36,8 +36,8 @@ keymap("n", "<S-l>", "<Plug>(cokeline-focus-next)",  { silent = true })
 keymap("n", "<S-h>", "<Plug>(cokeline-focus-prev)",  { silent = true })
 
 -- Harpoon
-keymap("n", "<C-n>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
-keymap("n", "<C-p>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+keymap("n", "<C-n>", require('harpoon.ui').nav_next, opts)
+keymap("n", "<C-p>", require('harpoon.ui').nav_prev, opts)
 
 -- keymap("n", "<S-l>", ":bprevious<CR>", opts)
 -- keymap("n", "<S-h>", ":bnext<CR>", opts)
@@ -78,11 +78,11 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Debug mappings
-vim.keymap.set({"n", "i"}, "<F5>", require"dap".continue, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F6>", require"dap".run_last, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F7>", require"dapui".close, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F8>", require"dap".terminate, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F1>", require"dap".step_over, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F2>", require"dap".step_into, { silent = true, noremap = true })
-vim.keymap.set({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F5>", require"dap".continue, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F6>", require"dap".run_last, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F7>", require"dapui".close, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F8>", require"dap".terminate, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F1>", require"dap".step_over, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F2>", require"dap".step_into, { silent = true, noremap = true })
+keymap({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
 
