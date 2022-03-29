@@ -38,6 +38,7 @@ local options = {
   grepformat = "%f:%l:%c:%m",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal",
   laststatus = 3,
+  -- showmatch = true,
   -- list = true,
   -- listchars = {                      -- Strings to use when 'list' option set.
   -- tab = ' ',                          -- Characters to be used to show a tab.
