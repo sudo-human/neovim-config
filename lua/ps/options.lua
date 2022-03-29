@@ -38,6 +38,15 @@ local options = {
   grepformat = "%f:%l:%c:%m",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal",
   laststatus = 3,
+  -- list = true,
+  -- listchars = {                      -- Strings to use when 'list' option set.
+  -- tab = ' ',                          -- Characters to be used to show a tab.
+  -- nbsp = '␣',                          -- Character to show for a non-breakable space character.
+  -- extends = '❯',                       -- Character to show in last column, when 'wrap' is off
+  -- precedes = '❮',                      -- Character to show in first visible column
+  -- eol = '↲',                           -- Character to show at end of line
+  -- trail = '⋅',                         -- Character to show trailing spaces
+-- }
 }
 
 vim.opt.shortmess:append "c"
