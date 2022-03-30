@@ -63,6 +63,14 @@ return packer.startup(function(use)
       require "ps.harpoon"
     end
   }
+  -- Indent Guides and rainbow brackets
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("ps.blankline")
+    end,
+  })
   -- use {
   --   'rmagatti/auto-session',
   --   config = function()
