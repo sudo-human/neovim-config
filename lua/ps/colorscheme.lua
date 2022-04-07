@@ -1,3 +1,5 @@
+vim.g.adwaita_mode = "dark"
+
 vim.cmd [[
 try
   colorscheme catppuccin

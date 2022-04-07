@@ -64,13 +64,13 @@ return packer.startup(function(use)
     end
   }
   -- Indent Guides and rainbow brackets
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
-    config = function()
-      require("ps.blankline")
-    end,
-  })
+  -- use({
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("ps.blankline")
+  --   end,
+  -- })
   -- use {
   --   'rmagatti/auto-session',
   --   config = function()
@@ -112,6 +112,8 @@ return packer.startup(function(use)
       require "ps.catppuccin"
     end
   })
+
+  use 'Mofiqul/adwaita.nvim'
 
   use {
     'luisiacc/gruvbox-baby'
