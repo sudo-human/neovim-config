@@ -470,7 +470,7 @@ feline.setup({
       '^aerial$',
     },
     buftypes = {
-      '^terminal$',
+      -- '^terminal$',
       '^netrw$'
     },
     bufnames = {}
