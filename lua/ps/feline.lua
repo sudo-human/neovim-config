@@ -116,31 +116,45 @@ local vi_mode_hl = function()
 	}
 end
 
+-- components.active[1][1] = {
+-- 	provider = assets.vertical_bar_chubby,
+-- 	-- hl = function()
+-- 	-- 	return {
+-- 	-- 		fg = mode_colors[vim.fn.mode()][2],
+-- 	-- 		bg = sett.bkg,
+-- 	-- 	}
+-- 	-- end,
+--   hl = {
+--     fg = sett.extras,
+--     bg = sett.bkg,
+--   },
+-- }
+
 components.active[1][1] = {
-	provider = assets.vertical_bar_chubby,
+	provider = "",
 	hl = function()
 		return {
 			fg = mode_colors[vim.fn.mode()][2],
-			bg = sett.bkg,
+      bg = sett.bkg,
 		}
 	end,
+  -- hl = {
+  --   fg = sett.extras,
+  --   bg = sett.bkg,
+  -- },
+  left_sep = invi_sep
 }
 
 components.active[1][2] = {
-	provider = "",
-	hl = function()
-		return {
-			fg = sett.bkg,
-			bg = mode_colors[vim.fn.mode()][2],
-		}
-	end,
-}
-
-components.active[1][3] = {
 	provider = function()
 		return " " .. mode_colors[vim.fn.mode()][1] .. " "
 	end,
-	hl = vi_mode_hl,
+	-- hl = vi_mode_hl,
+  hl = {
+    fg = sett.extras,
+    bg = sett.bkg,
+  },
+  right_sep = invi_sep
 }
 
 -- there is a dilema: we need to hide Diffs if ther is no git info. We can do that, but this will
@@ -150,131 +164,78 @@ components.active[1][3] = {
 -- the normal sett.bkg appears. Fixed :)
 
 -- enable if git diffs are not available
-components.active[1][4] = {
-	provider = assets.right_semicircle,
-	hl = function()
-		return {
-			fg = mode_colors[vim.fn.mode()][2],
-			bg = sett.bkg
-		}
-	end,
-	enabled = function()
-		return not any_git_changes()
-	end
-}
-
--- enable if git diffs are available
-components.active[1][5] = {
-	provider = assets.right_semicircle,
-	hl = function()
-		return {
-			fg = mode_colors[vim.fn.mode()][2],
-			bg = sett.diffs
-		}
-	end,
-	enabled = function()
-		return any_git_changes()
-	end
-}
+-- components.active[1][4] = {
+-- 	provider = assets.right_semicircle,
+-- 	hl = function()
+-- 		return {
+-- 			fg = mode_colors[vim.fn.mode()][2],
+-- 			bg = sett.bkg
+-- 		}
+-- 	end,
+-- 	enabled = function()
+-- 		return not any_git_changes()
+-- 	end
+-- }
+--
+-- -- enable if git diffs are available
+-- components.active[1][5] = {
+-- 	provider = assets.right_semicircle,
+-- 	hl = function()
+-- 		return {
+-- 			fg = mode_colors[vim.fn.mode()][2],
+-- 			bg = sett.diffs
+-- 		}
+-- 	end,
+-- 	enabled = function()
+-- 		return any_git_changes()
+-- 	end
+-- }
 -- Current vi mode ------>
 
 -- Diffs ------>
-components.active[1][6] = {
-	provider = "git_diff_added",
-	hl = {
-		fg = sett.bkg,
-		bg = sett.diffs,
-	},
-	icon = "  ",
-}
-
-components.active[1][7] = {
-	provider = "git_diff_changed",
-	hl = {
-		fg = sett.bkg,
-		bg = sett.diffs,
-	},
-	icon = "  ",
-}
-
-components.active[1][8] = {
-	provider = "git_diff_removed",
-	hl = {
-		fg = sett.bkg,
-		bg = sett.diffs,
-	},
-	icon = "  ",
-}
-
-components.active[1][9] = {
-	provider = assets.right_semicircle,
-	hl = {
-		fg = sett.diffs,
-		bg = sett.bkg,
-	},
-	enabled = function()
-		return any_git_changes()
-	end
-}
+-- components.active[1][6] = {
+-- 	provider = "git_diff_added",
+-- 	hl = {
+-- 		fg = sett.bkg,
+-- 		bg = sett.diffs,
+-- 	},
+-- 	icon = "  ",
+-- }
+--
+-- components.active[1][7] = {
+-- 	provider = "git_diff_changed",
+-- 	hl = {
+-- 		fg = sett.bkg,
+-- 		bg = sett.diffs,
+-- 	},
+-- 	icon = "  ",
+-- }
+--
+-- components.active[1][8] = {
+-- 	provider = "git_diff_removed",
+-- 	hl = {
+-- 		fg = sett.bkg,
+-- 		bg = sett.diffs,
+-- 	},
+-- 	icon = "  ",
+-- }
+--
+-- components.active[1][9] = {
+-- 	provider = assets.right_semicircle,
+-- 	hl = {
+-- 		fg = sett.diffs,
+-- 		bg = sett.bkg,
+-- 	},
+-- 	enabled = function()
+-- 		return any_git_changes()
+-- 	end
+-- }
 -- Diffs ------>
 
--- Diagnostics ------>
-
--- genral diagnostics (errors, warnings. info and hints)
-components.active[1][10] = {
-	provider = "diagnostic_errors",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.ERROR)
-	end,
-
-	hl = {
-		fg = clrs.red,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-  left_sep = invi_sep,
-}
-
-components.active[1][11] = {
-	provider = "diagnostic_warnings",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.WARN)
-	end,
-	hl = {
-		fg = clrs.yellow,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
-
-components.active[1][12] = {
-	provider = "diagnostic_info",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.INFO)
-	end,
-	hl = {
-		fg = clrs.sky,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
-
-components.active[1][13] = {
-	provider = "diagnostic_hints",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.HINT)
-	end,
-	hl = {
-		fg = clrs.rosewater,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
--- Diagnostics ------>
 
 -- GPS
 
-components.active[1][14] = {
+components.active[1][3] = {
 	provider = function()
 		return gps.get_location()
 	end,
@@ -285,7 +246,7 @@ components.active[1][14] = {
 		fg = clrs.rosewater,
 		bg = sett.bkg,
 	},
-  left_sep = invi_sep,
+  -- left_sep = invi_sep,
 }
 
 -- workspace loader
@@ -329,7 +290,7 @@ components.active[1][14] = {
 --   left_sep = invi_sep,
 -- }
 
-components.active[1][15] = {
+components.active[1][4] = {
   hl = {
     bg = sett.bkg
   }
@@ -339,7 +300,101 @@ components.active[1][15] = {
 
 -- ######## Right
 
+-- Diagnostics ------>
+
+-- genral diagnostics (errors, warnings. info and hints)
 components.active[2][1] = {
+	provider = "diagnostic_errors",
+	enabled = function()
+		return lsp.diagnostics_exist(lsp_severity.ERROR)
+	end,
+
+	hl = {
+		fg = clrs.red,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+  -- left_sep = invi_sep,
+}
+
+components.active[2][2] = {
+	provider = "diagnostic_warnings",
+	enabled = function()
+		return lsp.diagnostics_exist(lsp_severity.WARN)
+	end,
+	hl = {
+		fg = clrs.yellow,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+
+components.active[2][3] = {
+	provider = "diagnostic_info",
+	enabled = function()
+		return lsp.diagnostics_exist(lsp_severity.INFO)
+	end,
+	hl = {
+		fg = clrs.sky,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+
+components.active[2][4] = {
+	provider = "diagnostic_hints",
+	enabled = function()
+		return lsp.diagnostics_exist(lsp_severity.HINT)
+	end,
+	hl = {
+		fg = clrs.rosewater,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+-- Diagnostics ------>
+
+-- Diffs ------>
+components.active[2][5] = {
+	provider = "git_diff_added",
+	hl = {
+		fg = clrs.green,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+
+components.active[2][6] = {
+	provider = "git_diff_changed",
+	hl = {
+		fg = clrs.yellow,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+
+components.active[2][7] = {
+	provider = "git_diff_removed",
+	hl = {
+		fg = clrs.red,
+		bg = sett.bkg,
+	},
+	icon = "  ",
+}
+
+-- components.active[1][9] = {
+-- 	provider = assets.right_semicircle,
+-- 	hl = {
+-- 		fg = sett.bkg,
+-- 		bg = sett.bkg,
+-- 	},
+-- 	enabled = function()
+-- 		return any_git_changes()
+-- 	end
+-- }
+-- Diffs ------>
+
+components.active[2][8] = {
 	provider = "git_branch",
 	enabled = shortline or function()
 		return vim.api.nvim_win_get_width(0) > 70
@@ -353,37 +408,96 @@ components.active[2][1] = {
   right_sep = invi_sep,
 }
 
-components.active[2][2] = {
-	provider = function()
-		if next(vim.lsp.buf_get_clients()) ~= nil then
-			return " "
-		else
-			return ""
-		end
-	end,
-	hl = {
-		fg = sett.extras,
-		bg = sett.bkg
-	},
-	right_sep = invi_sep,
-}
+-- components.active[2][2] = {
+-- 	provider = function()
+-- 		if next(vim.lsp.buf_get_clients()) ~= nil then
+-- 			return " "
+-- 		else
+-- 			return ""
+-- 		end
+-- 	end,
+-- 	hl = {
+-- 		fg = sett.extras,
+-- 		bg = sett.bkg
+-- 	},
+-- 	right_sep = invi_sep,
+-- }
 
 -- position
-components.active[2][3] = {
-	provider = "position",
-	-- enabled = shortline or function(winid)
-	-- 	return vim.api.nvim_win_get_width(winid) > 90
-	-- end,
-	hl = {
-		fg = sett.extras,
-		bg = sett.bkg
-	},
-	right_sep = invi_sep,
-}
+-- components.active[2][3] = {
+-- 	provider = "position",
+-- 	-- enabled = shortline or function(winid)
+-- 	-- 	return vim.api.nvim_win_get_width(winid) > 90
+-- 	-- end,
+-- 	hl = {
+-- 		fg = sett.extras,
+-- 		bg = sett.bkg
+-- 	},
+-- 	right_sep = invi_sep,
+-- }
 
 -- file progess
-components.active[2][4] = {
-	provider = function()
+
+components.active[2][9] = {
+	-- provider = "file_info",
+	-- provider = function()
+	-- 	local filename = vim.fn.expand("%:t")
+	-- 	local extension = vim.fn.expand("%:e")
+	-- 	local icon = require("nvim-web-devicons").get_icon(filename, extension)
+	-- 	if icon == nil then
+	-- 		icon = "   "
+	-- 		return icon
+	-- 	end
+	-- 	return " " .. icon .. " " .. filename .. " "
+	-- end,
+  provider = {
+    name = 'file_info',
+    opts = {
+      type = 'unique',
+    }
+  },
+	-- enabled = shortline or function()
+	-- 	return vim.api.nvim_win_get_width(0) > 70
+	-- end,
+	hl = {
+		fg = sett.curr_file,
+		bg = sett.bkg,
+	},
+	-- left_sep = {
+	-- 	str = assets.left_semicircle,
+	-- 	hl = {
+	-- 		fg = sett.curr_file,
+	-- 		bg = sett.bkg,
+	-- 	},
+	-- },
+  left_sep = invi_sep
+}
+
+-- components.active[2][6] = {
+-- 	provider = function()
+-- 		local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+-- 		return "  " .. dir_name .. " "
+-- 	end,
+--
+-- 	enabled = shortline or function()
+-- 		return vim.api.nvim_win_get_width(0) > 80
+-- 	end,
+--
+-- 	hl = {
+-- 		fg = sett.bkg,
+-- 		bg = sett.curr_dir,
+-- 	},
+-- 	left_sep = {
+-- 		str = assets.left_semicircle,
+-- 		hl = {
+-- 			fg = sett.curr_dir,
+-- 			bg = sett.curr_file,
+-- 		},
+-- 	},
+-- }
+
+components.active[2][10] = {
+  provider = function()
 		local current_line = vim.fn.line(".")
 		local total_line = vim.fn.line("$")
 
@@ -402,57 +516,7 @@ components.active[2][4] = {
 		fg = sett.extras,
 		bg = sett.bkg
 	},
-	right_sep = invi_sep,
-}
-
-components.active[2][5] = {
-	provider = function()
-		local filename = vim.fn.expand("%:t")
-		local extension = vim.fn.expand("%:e")
-		local icon = require("nvim-web-devicons").get_icon(filename, extension)
-		if icon == nil then
-			icon = "   "
-			return icon
-		end
-		return " " .. icon .. " " .. filename .. " "
-	end,
-	enabled = shortline or function()
-		return vim.api.nvim_win_get_width(0) > 70
-	end,
-	hl = {
-		fg = sett.bkg,
-		bg = sett.curr_file,
-	},
-	left_sep = {
-		str = assets.left_semicircle,
-		hl = {
-			fg = sett.curr_file,
-			bg = sett.bkg,
-		},
-	},
-}
-
-components.active[2][6] = {
-	provider = function()
-		local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-		return "  " .. dir_name .. " "
-	end,
-
-	enabled = shortline or function()
-		return vim.api.nvim_win_get_width(0) > 80
-	end,
-
-	hl = {
-		fg = sett.bkg,
-		bg = sett.curr_dir,
-	},
-	left_sep = {
-		str = assets.left_semicircle,
-		hl = {
-			fg = sett.curr_dir,
-			bg = sett.curr_file,
-		},
-	},
+	left_sep = invi_sep,
 }
 -- ######## Right
 
