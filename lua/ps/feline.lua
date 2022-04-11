@@ -405,34 +405,34 @@ components.active[2][4] = {
 	right_sep = invi_sep,
 }
 
--- components.active[2][5] = {
--- 	provider = function()
--- 		local filename = vim.fn.expand("%:t")
--- 		local extension = vim.fn.expand("%:e")
--- 		local icon = require("nvim-web-devicons").get_icon(filename, extension)
--- 		if icon == nil then
--- 			icon = "   "
--- 			return icon
--- 		end
--- 		return " " .. icon .. " " .. filename .. " "
--- 	end,
--- 	enabled = shortline or function()
--- 		return vim.api.nvim_win_get_width(0) > 70
--- 	end,
--- 	hl = {
--- 		fg = sett.bkg,
--- 		bg = sett.curr_file,
--- 	},
--- 	left_sep = {
--- 		str = assets.left_semicircle,
--- 		hl = {
--- 			fg = sett.curr_file,
--- 			bg = sett.bkg,
--- 		},
--- 	},
--- }
-
 components.active[2][5] = {
+	provider = function()
+		local filename = vim.fn.expand("%:t")
+		local extension = vim.fn.expand("%:e")
+		local icon = require("nvim-web-devicons").get_icon(filename, extension)
+		if icon == nil then
+			icon = "   "
+			return icon
+		end
+		return " " .. icon .. " " .. filename .. " "
+	end,
+	enabled = shortline or function()
+		return vim.api.nvim_win_get_width(0) > 70
+	end,
+	hl = {
+		fg = sett.bkg,
+		bg = sett.curr_file,
+	},
+	left_sep = {
+		str = assets.left_semicircle,
+		hl = {
+			fg = sett.curr_file,
+			bg = sett.bkg,
+		},
+	},
+}
+
+components.active[2][6] = {
 	provider = function()
 		local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 		return "  " .. dir_name .. " "
@@ -450,7 +450,7 @@ components.active[2][5] = {
 		str = assets.left_semicircle,
 		hl = {
 			fg = sett.curr_dir,
-			bg = sett.bkg,
+			bg = sett.curr_file,
 		},
 	},
 }

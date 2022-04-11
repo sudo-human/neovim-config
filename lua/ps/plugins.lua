@@ -86,13 +86,13 @@ return packer.startup(function(use)
   --     require "ps.bufferline"
   --   end
   -- }
-  use({
-    'noib3/nvim-cokeline',
-    requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
-    config = function()
-      require "ps.cokeline"
-    end
-  })
+  -- use({
+  --   'noib3/nvim-cokeline',
+  --   requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
+  --   config = function()
+  --     require "ps.cokeline"
+  --   end
+  -- })
 
   use {
     "folke/which-key.nvim",
