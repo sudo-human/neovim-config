@@ -86,10 +86,16 @@ components.active[1][2] = {
   provider = function()
     return " " .. mode_colors[vim.fn.mode()][1] .. " "
   end,
-  hl = {
-    fg = sett.extras,
-    bg = sett.bkg,
-  },
+  -- hl = {
+  --   fg = sett.extras,
+  --   bg = sett.bkg,
+  -- },
+  hl = function()
+    return {
+      fg = mode_colors[vim.fn.mode()][2],
+      bg = sett.bkg,
+    }
+  end,
   right_sep = invi_sep
 }
 
