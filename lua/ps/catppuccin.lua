@@ -3,7 +3,8 @@ if not status then return end
 
 catppuccin.setup {
   term_colors = true,
-  integration = { nvimtree = {
+  integration = {
+    nvimtree = {
       enabled = true,
       show_root = true,
       transparent_panel = true,

@@ -12,6 +12,7 @@ local kind_status_ok, lspkind = pcall(require, "lspkind")
 if not kind_status_ok then
   return
 end
+local compare = require('cmp.config.compare')
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -127,14 +128,24 @@ cmp.setup {
     { name = "path" },
     { name = "cmp_tabnine" },
   },
+  sorting = {
+    comparators = {
+      compare.offset,
+      compare.exact,
+      compare.score,
+      compare.recently_used,
+      compare.kind,
+      compare.sort_text,
+      compare.length,
+      compare.order,
+    },
+  },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
   window = {
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    documentation = cmp.config.window.bordered(),
   },
   -- view = {
   --   entries = "native"
