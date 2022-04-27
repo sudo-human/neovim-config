@@ -104,7 +104,7 @@ return packer.startup(function(use)
     end
   }
 
-  -- Themes
+  -- Colorschemes
   use({
     "catppuccin/nvim",
     as = "catppuccin",
@@ -114,6 +114,9 @@ return packer.startup(function(use)
   })
 
   use 'Mofiqul/adwaita.nvim'
+
+  use 'bluz71/vim-moonfly-colors'
+  use 'bluz71/vim-nightfly-guicolors'
 
   use {
     'luisiacc/gruvbox-baby'
