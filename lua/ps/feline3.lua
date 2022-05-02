@@ -12,6 +12,7 @@ local lsp_severity = vim.diagnostic.severity
 -- local b = vim.b
 local gps = require("nvim-gps")
 -- local clrs = cat_colors.get_colors()
+-- local gruvbox_clrs = require("gruvbox.colors")
 
 local clrs = {
   dark0_hard = "#1d2021",
