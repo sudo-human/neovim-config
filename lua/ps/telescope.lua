@@ -86,11 +86,14 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    fd = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
-    find_files = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
-    git_files = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
+    -- fd = { no_ignore = true, hidden = true, sorting_strategy = "ascending", previewer = false },
+    find_files = { no_ignore = true, hidden = true, sorting_strategy = "ascending", previewer = false, layout_config = { prompt_position = "top" } },
+    -- find_files = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
+    -- git_files = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
+    git_files = { no_ignore = true, hidden = true, sorting_strategy = "ascending", previewer = false, layout_config = { prompt_position = "top" } },
     current_buffer_fuzzy_find = themes.get_ivy { hidden = true },
     live_grep = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
+    grep_string = themes.get_ivy { no_ignore = true, hidden = true, sorting_strategy = "ascending" },
   },
   extensions = {
     -- Your extension configuration goes here:
