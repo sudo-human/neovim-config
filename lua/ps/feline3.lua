@@ -57,7 +57,7 @@ local sett = {
 	bkg = clrs.dark1,
 	diffs = clrs.bright_purple,
 	extras = clrs.gray,
-	curr_file = clrs.faded_orange,
+	curr_file = clrs.bright_blue,
 	curr_dir = clrs.faded_aqua,
 }
 
