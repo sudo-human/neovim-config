@@ -9,3 +9,5 @@ require "ps.colorscheme"
 require "ps.telescope"
 require "ps.lsp"
 require "ps.cmp"
+
+require'colorizer'.setup()

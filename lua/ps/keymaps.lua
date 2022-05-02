@@ -109,11 +109,11 @@ if status then
 
   -- Search
   keymap({"n"}, "<leader>sf", tb.live_grep, opts)
-  keymap({"n"}, "<leader>sf", tb.current_buffer_fuzzy_find, opts)
-  keymap({"n"}, "<leader>sf", tb.colorscheme, opts)
-  keymap({"n"}, "<leader>sf", tb.registers, opts)
-  keymap({"n"}, "<leader>sf", tb.keymaps, opts)
-  keymap({"n"}, "<leader>sf", tb.commands, opts)
+  keymap({"n"}, "<leader>sb", tb.current_buffer_fuzzy_find, opts)
+  keymap({"n"}, "<leader>sC", tb.colorscheme, opts)
+  keymap({"n"}, "<leader>sr", tb.registers, opts)
+  keymap({"n"}, "<leader>sk", tb.keymaps, opts)
+  keymap({"n"}, "<leader>sc", tb.commands, opts)
 
   -- LSP
   -- keymap({"n"}, "<leader>la", "<cmd>Telescope lsp_code_actions<CR>", opts)

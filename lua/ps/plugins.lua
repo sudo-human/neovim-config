@@ -103,6 +103,7 @@ return packer.startup(function(use)
       vim.g.cursorhold_updatetime = 100
     end
   }
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Colorschemes
   use({
@@ -117,7 +118,7 @@ return packer.startup(function(use)
 
   use 'bluz71/vim-moonfly-colors'
   use 'bluz71/vim-nightfly-guicolors'
-
+  use { "ellisonleao/gruvbox.nvim" }
   use {
     'luisiacc/gruvbox-baby'
   }
@@ -133,7 +134,7 @@ return packer.startup(function(use)
   use {
     "feline-nvim/feline.nvim",
     config = function ()
-      require "ps.feline2"
+      require "ps.feline3"
     end
   }
 
