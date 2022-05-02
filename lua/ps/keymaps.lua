@@ -134,3 +134,13 @@ if pcall(require, "harpoon") then
   keymap({"n"}, "<leader>'", require('harpoon.ui').toggle_quick_menu, opts)
   keymap({"n"}, "<leader>m", require('harpoon.mark').add_file, opts)
 end
+
+local gs_status, gs = pcall(require, "gitsigns")
+if gs_status then
+  keymap({"n"}, "<leader>gl", function () gs.blame_line({ ful = true }) end, opts)
+  keymap({"n"}, "<leader>gp", gs.preview_hunk, opts)
+  keymap({"n"}, "<leader>gr", gs.reset_hunk, opts)
+  keymap({"n"}, "<leader>gR", gs.reset_buffer, opts)
+  keymap({"n"}, "<leader>gs", gs.stage_hunk, opts)
+  keymap({"n"}, "<leader>gd", "<cmd>Gitsigns diffthis HEAD<CR>", opts)
+end
