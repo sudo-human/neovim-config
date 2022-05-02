@@ -18,9 +18,13 @@ notify.setup({
   timeout = 3000,
 
   -- Max number of columns for messages
-  max_width = nil,
+  max_width = function ()
+    local curr_win_width = vim.api.nvim_win_get_width(0)
+    local width = math.floor(0.3 * curr_win_width)
+    return width
+  end,
   -- Max number of lines for a message
-  max_height = nil,
+  max_height = 5,
 
   -- For stages that change opacity this is treated as the highlight behind the window
   -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values

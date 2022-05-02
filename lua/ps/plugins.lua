@@ -94,9 +94,9 @@ return packer.startup(function(use)
   --   end
   -- })
 
-  use {
-    "folke/which-key.nvim",
-  }
+  -- use {
+  --   "folke/which-key.nvim",
+  -- }
   use {
     "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
     config = function ()

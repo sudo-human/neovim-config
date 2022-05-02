@@ -132,20 +132,21 @@ aerial.setup({
   -- Call this function when aerial attaches to a buffer.
   -- Useful for setting keymaps. Takes a single `bufnr` argument.
   on_attach = function(bufnr)
-    local nopts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-    require("which-key").register({
-      l = {
-        A = { "<cmd>AerialToggle<cr>", "Open Symbols explorer" },
-      }
-    }, nopts)
+    -- local nopts = {
+    --   mode = "n", -- NORMAL mode
+    --   prefix = "<leader>",
+    --   buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+    --   silent = true, -- use `silent` when creating keymaps
+    --   noremap = true, -- use `noremap` when creating keymaps
+    --   nowait = true, -- use `nowait` when creating keymaps
+    -- }
+    -- require("which-key").register({
+    --   l = {
+    --     A = { "<cmd>AerialToggle<cr>", "Open Symbols explorer" },
+    --   }
+    -- }, nopts)
     -- Toggle the aerial window with <leader>a
+    vim.keymap.set({"n"}, "<leader>lA", "<cmd>AerialToggle<CR>", { buffer = bufnr, noremap = true, silent = true, nowait = true })
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-a>', '<cmd>AerialToggle<CR>', {})
     -- -- Jump forwards/backwards with '{' and '}'
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '{', '<cmd>AerialPrev<CR>', {})

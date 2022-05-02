@@ -35,9 +35,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-l>", "<Plug>(cokeline-focus-next)",  { silent = true })
 -- keymap("n", "<S-h>", "<Plug>(cokeline-focus-prev)",  { silent = true })
 
--- Harpoon
-keymap("n", "<C-n>", require('harpoon.ui').nav_next, opts)
-keymap("n", "<C-p>", require('harpoon.ui').nav_prev, opts)
 
 -- keymap("n", "<S-l>", ":bprevious<CR>", opts)
 -- keymap("n", "<S-h>", ":bnext<CR>", opts)
@@ -78,11 +75,62 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Debug mappings
-keymap({"n", "i"}, "<F5>", require"dap".continue, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F6>", require"dap".run_last, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F7>", require"dapui".close, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F8>", require"dap".terminate, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F1>", require"dap".step_over, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F2>", require"dap".step_into, { silent = true, noremap = true })
-keymap({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
+if pcall(require, "dap") then
+  keymap({"n", "i"}, "<F5>", require"dap".continue, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F6>", require"dap".run_last, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F7>", require"dapui".close, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F8>", require"dap".terminate, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F1>", require"dap".step_over, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F2>", require"dap".step_into, { silent = true, noremap = true })
+  keymap({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
+  keymap({"n"}, "<leader>db", require"dap".toggle_breakpoint, opts)
+  keymap({"n"}, "<leader>dB", function () require"dap".set_breakpoint(vim.fn.input("Breakpint condition: ")) end, opts)
+  keymap({"n"}, "<leader>db", function () require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts)
+  keymap({"n"}, "<leader>dC", require"dap".clear_breakpoints, opts)
+end
 
+
+local status, telescope = pcall(require, "telescope")
+if status then
+  local tb = require("telescope.builtin")
+  -- File
+  keymap({"n"}, "<leader>ff", tb.find_files, opts)
+  keymap({"n"}, "<leader>fg", tb.git_files, opts)
+  keymap({"n"}, "<leader>fs", ":w!<CR>", opts)
+  keymap({"n"}, "<leader>fb", function() telescope.extensions.file_browser.file_browser({path = "%:p:h"}) end, opts)
+
+  -- Buffers
+  keymap({"n"}, "<leader>bb", tb.buffers, opts)
+  keymap({"n"}, "<leader>bd", "<cmd>bdelete!<CR>", opts)
+
+  -- Help
+  keymap({"n"}, "<leader>hh", tb.help_tags, opts)
+  keymap({"n"}, "<leader>hm", tb.man_pages, opts)
+
+  -- Search
+  keymap({"n"}, "<leader>sf", tb.live_grep, opts)
+  keymap({"n"}, "<leader>sf", tb.current_buffer_fuzzy_find, opts)
+  keymap({"n"}, "<leader>sf", tb.colorscheme, opts)
+  keymap({"n"}, "<leader>sf", tb.registers, opts)
+  keymap({"n"}, "<leader>sf", tb.keymaps, opts)
+  keymap({"n"}, "<leader>sf", tb.commands, opts)
+
+  -- LSP
+  -- keymap({"n"}, "<leader>la", "<cmd>Telescope lsp_code_actions<CR>", opts)
+  keymap({"n"}, "<leader>ld", tb.diagnostics, opts)
+  keymap({"n"}, "<leader>ls", tb.lsp_document_symbols, opts)
+  keymap({"n"}, "<leader>ldS", tb.lsp_dynamic_workspace_symbols, opts)
+  keymap({"n"}, "<leader>lS", tb.lsp_workspace_symbols, opts)
+  keymap({"n"}, "<leader>lr", tb.lsp_references, opts)
+end
+
+if pcall(require, "neogit") then
+  keymap({"n"}, "<leader>gg", require("neogit").open, opts)
+end
+
+if pcall(require, "harpoon") then
+  keymap({"n"}, "<C-n>", require('harpoon.ui').nav_next, opts)
+  keymap({"n"}, "<C-p>", require('harpoon.ui').nav_prev, opts)
+  keymap({"n"}, "<leader>'", require('harpoon.ui').toggle_quick_menu, opts)
+  keymap({"n"}, "<leader>m", require('harpoon.mark').add_file, opts)
+end
