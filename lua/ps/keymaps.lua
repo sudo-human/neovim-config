@@ -137,7 +137,7 @@ end
 
 local gs_status, gs = pcall(require, "gitsigns")
 if gs_status then
-  keymap({"n"}, "<leader>gl", function () gs.blame_line({ ful = true }) end, opts)
+  keymap({"n"}, "<leader>gl", function () gs.blame_line({ full = true }) end, opts)
   keymap({"n"}, "<leader>gp", gs.preview_hunk, opts)
   keymap({"n"}, "<leader>gr", gs.reset_hunk, opts)
   keymap({"n"}, "<leader>gR", gs.reset_buffer, opts)
