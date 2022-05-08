@@ -10,4 +10,4 @@ require "ps.telescope"
 require "ps.lsp"
 require "ps.cmp"
 
-require'colorizer'.setup()
+-- require'colorizer'.setup()

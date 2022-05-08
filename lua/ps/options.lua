@@ -39,6 +39,7 @@ local options = {
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal",
   laststatus = 3,
   showmatch = true,
+  pumblend = 10,
   -- colorcolumn = "80"
   -- list = true,
   -- listchars = {                      -- Strings to use when 'list' option set.
