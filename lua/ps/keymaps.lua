@@ -133,6 +133,10 @@ if pcall(require, "harpoon") then
   keymap({"n"}, "<C-p>", require('harpoon.ui').nav_prev, opts)
   keymap({"n"}, "<leader>'", require('harpoon.ui').toggle_quick_menu, opts)
   keymap({"n"}, "<leader>m", require('harpoon.mark').add_file, opts)
+  keymap({"n"}, "<leader>1", function() require("harpoon.ui").nav_file(1) end, opts)
+  keymap({"n"}, "<leader>2", function() require("harpoon.ui").nav_file(2) end, opts)
+  keymap({"n"}, "<leader>3", function() require("harpoon.ui").nav_file(3) end, opts)
+  keymap({"n"}, "<leader>4", function() require("harpoon.ui").nav_file(4) end, opts)
 end
 
 local gs_status, gs = pcall(require, "gitsigns")
@@ -144,3 +148,9 @@ if gs_status then
   keymap({"n"}, "<leader>gs", gs.stage_hunk, opts)
   keymap({"n"}, "<leader>gd", "<cmd>Gitsigns diffthis HEAD<CR>", opts)
 end
+
+keymap({"n"}, "<leader>ot", "<cmd>TeoggleTerm direction=float<cr>", opts)
+keymap({"n"}, "<leader>ov", "<cmd>TeoggleTerm direction=vertical<cr>", opts)
+keymap({"n"}, "<leader>oh", "<cmd>TeoggleTerm direction=horizontal<cr>", opts)
+keymap({"n"}, "<leader>oq", "<cmd>copen<cr>", opts)
+keymap({"n"}, "<leader>oe", "<cmd>NvimTreeToggle<cr>", opts)
