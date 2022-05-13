@@ -111,7 +111,7 @@ local invi_sep = {
 
 -- Vim icon
 components.active[1][1] = {
-  provider = "",
+  provider = "",
   hl = function()
     return {
       fg = mode_colors[vim.fn.mode()][2],
@@ -139,8 +139,24 @@ components.active[1][2] = {
   right_sep = invi_sep
 }
 
--- nvim-gps component
+-- Current file
 components.active[1][3] = {
+  provider = {
+    name = 'file_info',
+    opts = {
+      type = 'unique',
+    }
+  },
+	hl = {
+		fg = sett.curr_file,
+		bg = sett.bkg,
+	},
+  left_sep = invi_sep,
+  right_sep = invi_sep
+}
+
+-- nvim-gps component
+components.active[1][4] = {
 	provider = function()
 		return gps.get_location()
 	end,
@@ -269,24 +285,9 @@ components.active[2][9] = {
 		fg = sett.extras,
 		bg = sett.bkg
 	},
-	left_sep = invi_sep,
+	right_sep = invi_sep,
 }
 
--- Current file
-components.active[2][10] = {
-  provider = {
-    name = 'file_info',
-    opts = {
-      type = 'unique',
-    }
-  },
-	hl = {
-		fg = sett.curr_file,
-		bg = sett.bkg,
-	},
-  left_sep = invi_sep,
-  right_sep = invi_sep
-}
 
 
 -- ######## Right
@@ -311,3 +312,4 @@ feline.setup({
     bufnames = {}
   }
 })
+
