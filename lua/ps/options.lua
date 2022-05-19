@@ -41,15 +41,15 @@ local options = {
   showmatch = true,
   pumblend = 15,
   -- colorcolumn = "80"
-  -- list = true,
-  -- listchars = {                      -- Strings to use when 'list' option set.
-  -- tab = ' ',                          -- Characters to be used to show a tab.
-  -- nbsp = '␣',                          -- Character to show for a non-breakable space character.
-  -- extends = '❯',                       -- Character to show in last column, when 'wrap' is off
-  -- precedes = '❮',                      -- Character to show in first visible column
-  -- eol = '↲',                           -- Character to show at end of line
-  -- trail = '⋅',                         -- Character to show trailing spaces
--- }
+  list = true,
+  listchars = {                      -- Strings to use when 'list' option set.
+  tab = ' ',                          -- Characters to be used to show a tab.
+  nbsp = '␣',                          -- Character to show for a non-breakable space character.
+  extends = '❯',                       -- Character to show in last column, when 'wrap' is off
+  precedes = '❮',                      -- Character to show in first visible column
+  eol = '﬋',                           -- Character to show at end of line
+  trail = '⋅',                         -- Character to show trailing spaces
+}
 }
 
 vim.opt.shortmess:append "c"
