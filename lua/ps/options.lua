@@ -49,7 +49,7 @@ local options = {
   precedes = '❮',                      -- Character to show in first visible column
   eol = '﬋',                           -- Character to show at end of line
   trail = '⋅',                         -- Character to show trailing spaces
-}
+  }
 }
 
 vim.opt.shortmess:append "c"
