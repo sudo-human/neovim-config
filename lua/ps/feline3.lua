@@ -105,6 +105,18 @@ local invi_sep = {
 	},
 }
 
+local spacer = {
+  hl = {
+    bg = sett.bkg
+  }
+}
+
+local inactive_spacer = {
+  hl = {
+    bg = clrs.dark0
+  }
+}
+
 -- #################### STATUSLINE ->
 
 -- ######## Left
@@ -294,22 +306,70 @@ components.active[2][9] = {
 
 feline.setup({
 	components = components,
-  force_inactive = {
-    filetypes = {
-      '^NvimTree$',
-      '^packer$',
-      '^startify$',
-      '^fugitive$',
-      '^fugitiveblame$',
-      '^qf$',
-      '^help$',
-      '^aerial$',
-    },
-    buftypes = {
-      -- '^terminal$',
-      '^netrw$'
-    },
-    bufnames = {}
-  }
+  -- force_inactive = {
+  --   filetypes = {
+  --     '^NvimTree$',
+  --     '^packer$',
+  --     '^startify$',
+  --     '^fugitive$',
+  --     '^fugitiveblame$',
+  --     '^qf$',
+  --     '^help$',
+  --     '^aerial$',
+  --   },
+  --   buftypes = {
+  --     -- '^terminal$',
+  --     '^netrw$'
+  --   },
+  --   bufnames = {}
+  -- }
 })
 
+
+-- Initialize the components table
+local winbar_components = {
+	active = {},
+	inactive = {},
+}
+
+table.insert(winbar_components.active, {}) -- (1) left
+table.insert(winbar_components.active, {}) -- (2) middle
+table.insert(winbar_components.active, {}) -- (3) right
+table.insert(winbar_components.inactive, {}) -- (1) left
+table.insert(winbar_components.inactive, {}) -- (2) middle
+table.insert(winbar_components.inactive, {}) -- (3) right
+
+winbar_components.active[1][1] = spacer
+winbar_components.active[3][1] = spacer
+winbar_components.inactive[1][1] = inactive_spacer
+winbar_components.inactive[3][1] = inactive_spacer
+
+local file_info = {
+  provider = {
+    name = 'file_info',
+    opts = {
+      type = 'unique',
+    }
+  },
+	hl = {
+		fg = sett.curr_file,
+		bg = sett.bkg,
+	},
+}
+
+winbar_components.active[2][1] = file_info
+winbar_components.inactive[2][1] = {
+  provider = {
+    name = 'file_info',
+    opts = {
+      type = 'unique',
+    }
+  },
+  hl = {
+    bg = clrs.dark0
+  }
+}
+
+require('feline').winbar.setup({
+  components = winbar_components
+})
