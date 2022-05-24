@@ -152,20 +152,20 @@ components.active[1][2] = {
 }
 
 -- Current file
-components.active[1][3] = {
-  provider = {
-    name = 'file_info',
-    opts = {
-      type = 'unique',
-    }
-  },
-	hl = {
-		fg = sett.curr_file,
-		bg = sett.bkg,
-	},
-  left_sep = invi_sep,
-  right_sep = invi_sep
-}
+-- components.active[1][3] = {
+--   provider = {
+--     name = 'file_info',
+--     opts = {
+--       type = 'unique',
+--     }
+--   },
+-- 	hl = {
+-- 		fg = sett.curr_file,
+-- 		bg = sett.bkg,
+-- 	},
+--   left_sep = invi_sep,
+--   right_sep = invi_sep
+-- }
 
 -- nvim-gps component
 components.active[1][4] = {
@@ -280,25 +280,25 @@ components.active[2][8] = {
 }
 
 -- File percentage
-components.active[2][9] = {
-  provider = function()
-		local current_line = vim.fn.line(".")
-		local total_line = vim.fn.line("$")
-
-		if current_line == 1 then
-			return " Top "
-		elseif current_line == vim.fn.line("$") then
-			return " Bot "
-		end
-		local result, _ = math.modf((current_line / total_line) * 100)
-		return " " .. result .. "%% "
-	end,
-	hl = {
-		fg = sett.extras,
-		bg = sett.bkg
-	},
-	right_sep = invi_sep,
-}
+-- components.active[2][9] = {
+--   provider = function()
+-- 		local current_line = vim.fn.line(".")
+-- 		local total_line = vim.fn.line("$")
+--
+-- 		if current_line == 1 then
+-- 			return " Top "
+-- 		elseif current_line == vim.fn.line("$") then
+-- 			return " Bot "
+-- 		end
+-- 		local result, _ = math.modf((current_line / total_line) * 100)
+-- 		return " " .. result .. "%% "
+-- 	end,
+-- 	hl = {
+-- 		fg = sett.extras,
+-- 		bg = sett.bkg
+-- 	},
+-- 	right_sep = invi_sep,
+-- }
 
 
 
@@ -344,7 +344,7 @@ winbar_components.active[3][1] = spacer
 winbar_components.inactive[1][1] = inactive_spacer
 winbar_components.inactive[3][1] = inactive_spacer
 
-local file_info = {
+winbar_components.active[2][1] = {
   provider = {
     name = 'file_info',
     opts = {
@@ -357,7 +357,25 @@ local file_info = {
 	},
 }
 
-winbar_components.active[2][1] = file_info
+winbar_components.active[2][2] ={
+  provider = function()
+		local current_line = vim.fn.line(".")
+		local total_line = vim.fn.line("$")
+
+		if current_line == 1 then
+			return " Top "
+		elseif current_line == vim.fn.line("$") then
+			return " Bot "
+		end
+		local result, _ = math.modf((current_line / total_line) * 100)
+		return " " .. result .. "%% "
+	end,
+	hl = {
+		fg = sett.extras,
+		bg = sett.bkg
+	},
+}
+
 winbar_components.inactive[2][1] = {
   provider = {
     name = 'file_info',
@@ -368,6 +386,25 @@ winbar_components.inactive[2][1] = {
   hl = {
     bg = clrs.dark0
   }
+}
+
+winbar_components.inactive[2][2] ={
+  provider = function()
+		local current_line = vim.fn.line(".")
+		local total_line = vim.fn.line("$")
+
+		if current_line == 1 then
+			return " Top "
+		elseif current_line == vim.fn.line("$") then
+			return " Bot "
+		end
+		local result, _ = math.modf((current_line / total_line) * 100)
+		return " " .. result .. "%% "
+	end,
+	hl = {
+		fg = sett.extras,
+		bg = clrs.dark0
+	},
 }
 
 require('feline').winbar.setup({
