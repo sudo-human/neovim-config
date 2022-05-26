@@ -55,42 +55,42 @@ local clrs = {
 
 -- settings
 local sett = {
-	bkg = clrs.dark1,
-	diffs = clrs.bright_purple,
-	extras = clrs.gray,
-	curr_file = clrs.bright_blue,
-	curr_dir = clrs.faded_aqua,
+  bkg = clrs.dark1,
+  diffs = clrs.bright_purple,
+  extras = clrs.gray,
+  curr_file = clrs.bright_blue,
+  curr_dir = clrs.faded_aqua,
 }
 
 local mode_colors = {
-	["n"] = { "NORMAL", clrs.bright_blue },
-	["no"] = { "N-PENDING", clrs.bright_blue },
-	["i"] = { "INSERT", clrs.neutral_green },
-	["ic"] = { "INSERT", clrs.neutral_green },
-	["t"] = { "TERMINAL", clrs.neutral_green },
-	["v"] = { "VISUAL", clrs.neutral_purple },
-	["V"] = { "V-LINE", clrs.neutral_purple },
-	[""] = { "V-BLOCK", clrs.neutral_purple },
-	["R"] = { "REPLACE", clrs.faded_purple },
-	["Rv"] = { "V-REPLACE", clrs.faded_purple },
-	["s"] = { "SELECT", clrs.faded_purple },
-	["S"] = { "S-LINE", clrs.faded_purple },
-	[""] = { "S-BLOCK", clrs.faded_purple },
-	["c"] = { "COMMAND", clrs.neutral_orange },
-	["cv"] = { "COMMAND", clrs.neutral_orange },
-	["ce"] = { "COMMAND", clrs.neutral_orange },
-	["r"] = { "PROMPT", clrs.faded_aqua },
-	["rm"] = { "MORE", clrs.faded_aqua },
-	["r?"] = { "CONFIRM", clrs.neutral_aqua },
-	["!"] = { "SHELL", clrs.neutral_green },
+  ["n"] = { "NORMAL", clrs.bright_blue },
+  ["no"] = { "N-PENDING", clrs.bright_blue },
+  ["i"] = { "INSERT", clrs.neutral_green },
+  ["ic"] = { "INSERT", clrs.neutral_green },
+  ["t"] = { "TERMINAL", clrs.neutral_green },
+  ["v"] = { "VISUAL", clrs.neutral_purple },
+  ["V"] = { "V-LINE", clrs.neutral_purple },
+  [""] = { "V-BLOCK", clrs.neutral_purple },
+  ["R"] = { "REPLACE", clrs.faded_purple },
+  ["Rv"] = { "V-REPLACE", clrs.faded_purple },
+  ["s"] = { "SELECT", clrs.faded_purple },
+  ["S"] = { "S-LINE", clrs.faded_purple },
+  [""] = { "S-BLOCK", clrs.faded_purple },
+  ["c"] = { "COMMAND", clrs.neutral_orange },
+  ["cv"] = { "COMMAND", clrs.neutral_orange },
+  ["ce"] = { "COMMAND", clrs.neutral_orange },
+  ["r"] = { "PROMPT", clrs.faded_aqua },
+  ["rm"] = { "MORE", clrs.faded_aqua },
+  ["r?"] = { "CONFIRM", clrs.neutral_aqua },
+  ["!"] = { "SHELL", clrs.neutral_green },
 }
 
 local shortline = false
 
 -- Initialize the components table
 local components = {
-	active = {},
-	inactive = {},
+  active = {},
+  inactive = {},
 }
 
 table.insert(components.active, {}) -- (1) left
@@ -98,23 +98,19 @@ table.insert(components.active, {}) -- (3) right
 
 -- global components
 local invi_sep = {
-	str = " ",
-	hl = {
-		fg = sett.bkg,
-		bg = sett.bkg
-	},
-}
-
-local spacer = {
+  str = " ",
   hl = {
+    fg = sett.bkg,
     bg = sett.bkg
-  }
+  },
 }
 
-local inactive_spacer = {
+local inactive_invi_sep = {
+  str = " ",
   hl = {
+    fg = sett.bkg,
     bg = clrs.dark0
-  }
+  },
 }
 
 -- #################### STATUSLINE ->
@@ -122,7 +118,7 @@ local inactive_spacer = {
 -- ######## Left
 
 -- Vim icon
-components.active[1][1] = {
+table.insert(components.active[1], {
   provider = "",
   hl = function()
     return {
@@ -131,17 +127,13 @@ components.active[1][1] = {
     }
   end,
   left_sep = invi_sep
-}
+})
 
 -- Current vim mode
-components.active[1][2] = {
+table.insert(components.active[1], {
   provider = function()
     return " " .. mode_colors[vim.fn.mode()][1] .. " "
   end,
-  -- hl = {
-  --   fg = sett.extras,
-  --   bg = sett.bkg,
-  -- },
   hl = function()
     return {
       fg = mode_colors[vim.fn.mode()][2],
@@ -149,163 +141,110 @@ components.active[1][2] = {
     }
   end,
   right_sep = invi_sep
-}
-
--- Current file
--- components.active[1][3] = {
---   provider = {
---     name = 'file_info',
---     opts = {
---       type = 'unique',
---     }
---   },
--- 	hl = {
--- 		fg = sett.curr_file,
--- 		bg = sett.bkg,
--- 	},
---   left_sep = invi_sep,
---   right_sep = invi_sep
--- }
-
--- nvim-gps component
-components.active[1][4] = {
-	provider = function()
-		return gps.get_location()
-	end,
-	enabled = function()
-		return gps.is_available()
-	end,
-	hl = {
-		fg = clrs.gray,
-		bg = sett.bkg,
-	},
-}
+})
 
 -- ######## Right
 
 -- Diagnostics ------>
 
 -- genral diagnostics (errors, warnings. info and hints)
-components.active[2][1] = {
-	provider = "diagnostic_errors",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.ERROR)
-	end,
+table.insert(components.active[2], {
+  provider = "diagnostic_errors",
+  enabled = function()
+    return lsp.diagnostics_exist(lsp_severity.ERROR)
+  end,
 
-	hl = {
-		fg = clrs.bright_red,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+  hl = {
+    fg = clrs.bright_red,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
-components.active[2][2] = {
-	provider = "diagnostic_warnings",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.WARN)
-	end,
-	hl = {
-		fg = clrs.bright_yellow,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "diagnostic_warnings",
+  enabled = function()
+    return lsp.diagnostics_exist(lsp_severity.WARN)
+  end,
+  hl = {
+    fg = clrs.bright_yellow,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
-components.active[2][3] = {
-	provider = "diagnostic_info",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.INFO)
-	end,
-	hl = {
-		fg = clrs.bright_blue,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "diagnostic_info",
+  enabled = function()
+    return lsp.diagnostics_exist(lsp_severity.INFO)
+  end,
+  hl = {
+    fg = clrs.bright_blue,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
-components.active[2][4] = {
-	provider = "diagnostic_hints",
-	enabled = function()
-		return lsp.diagnostics_exist(lsp_severity.HINT)
-	end,
-	hl = {
-		fg = clrs.light0_soft,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "diagnostic_hints",
+  enabled = function()
+    return lsp.diagnostics_exist(lsp_severity.HINT)
+  end,
+  hl = {
+    fg = clrs.light0_soft,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 -- Diagnostics ------>
 
 -- Diffs ------>
-components.active[2][5] = {
-	provider = "git_diff_added",
-	hl = {
-		fg = clrs.neutral_aqua,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "git_diff_added",
+  hl = {
+    fg = clrs.neutral_aqua,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
-components.active[2][6] = {
-	provider = "git_diff_changed",
-	hl = {
-		fg = clrs.bright_orange,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "git_diff_changed",
+  hl = {
+    fg = clrs.bright_orange,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
-components.active[2][7] = {
-	provider = "git_diff_removed",
-	hl = {
-		fg = clrs.neutral_red,
-		bg = sett.bkg,
-	},
-	icon = "  ",
-}
+table.insert(components.active[2], {
+  provider = "git_diff_removed",
+  hl = {
+    fg = clrs.neutral_red,
+    bg = sett.bkg,
+  },
+  icon = "  ",
+})
 
 -- Current git branch
-components.active[2][8] = {
-	provider = "git_branch",
-	enabled = shortline or function()
-		return vim.api.nvim_win_get_width(0) > 70
-	end,
-	hl = {
-		fg = sett.extras,
-		bg = sett.bkg
-	},
-	icon = "  ",
-	left_sep = invi_sep,
+table.insert(components.active[2], {
+  provider = "git_branch",
+  enabled = shortline or function()
+    return vim.api.nvim_win_get_width(0) > 70
+  end,
+  hl = {
+    fg = sett.extras,
+    bg = sett.bkg
+  },
+  icon = "  ",
+  left_sep = invi_sep,
   right_sep = invi_sep,
-}
-
--- File percentage
--- components.active[2][9] = {
---   provider = function()
--- 		local current_line = vim.fn.line(".")
--- 		local total_line = vim.fn.line("$")
---
--- 		if current_line == 1 then
--- 			return " Top "
--- 		elseif current_line == vim.fn.line("$") then
--- 			return " Bot "
--- 		end
--- 		local result, _ = math.modf((current_line / total_line) * 100)
--- 		return " " .. result .. "%% "
--- 	end,
--- 	hl = {
--- 		fg = sett.extras,
--- 		bg = sett.bkg
--- 	},
--- 	right_sep = invi_sep,
--- }
-
-
+})
 
 -- ######## Right
 
 feline.setup({
-	components = components,
+  components = components,
   -- force_inactive = {
   --   filetypes = {
   --     '^NvimTree$',
@@ -328,55 +267,16 @@ feline.setup({
 
 -- Initialize the components table
 local winbar_components = {
-	active = {},
-	inactive = {},
+  active = {},
+  inactive = {},
 }
 
 table.insert(winbar_components.active, {}) -- (1) left
-table.insert(winbar_components.active, {}) -- (2) middle
 table.insert(winbar_components.active, {}) -- (3) right
 table.insert(winbar_components.inactive, {}) -- (1) left
-table.insert(winbar_components.inactive, {}) -- (2) middle
 table.insert(winbar_components.inactive, {}) -- (3) right
 
-winbar_components.active[1][1] = spacer
-winbar_components.active[3][1] = spacer
-winbar_components.inactive[1][1] = inactive_spacer
-winbar_components.inactive[3][1] = inactive_spacer
-
-winbar_components.active[2][1] = {
-  provider = {
-    name = 'file_info',
-    opts = {
-      type = 'unique',
-    }
-  },
-	hl = {
-		fg = sett.curr_file,
-		bg = sett.bkg,
-	},
-}
-
-winbar_components.active[2][2] ={
-  provider = function()
-		local current_line = vim.fn.line(".")
-		local total_line = vim.fn.line("$")
-
-		if current_line == 1 then
-			return " Top "
-		elseif current_line == vim.fn.line("$") then
-			return " Bot "
-		end
-		local result, _ = math.modf((current_line / total_line) * 100)
-		return " " .. result .. "%% "
-	end,
-	hl = {
-		fg = sett.extras,
-		bg = sett.bkg
-	},
-}
-
-winbar_components.inactive[2][1] = {
+table.insert(winbar_components.active[1], {
   provider = {
     name = 'file_info',
     opts = {
@@ -384,28 +284,91 @@ winbar_components.inactive[2][1] = {
     }
   },
   hl = {
-    bg = clrs.dark0
-  }
-}
+    fg = sett.curr_file,
+    bg = sett.bkg,
+  },
+  left_sep = invi_sep,
+  right_sep = invi_sep
+})
 
-winbar_components.inactive[2][2] ={
+table.insert(winbar_components.active[1], {
   provider = function()
-		local current_line = vim.fn.line(".")
-		local total_line = vim.fn.line("$")
+    return gps.get_location()
+  end,
+  enabled = function()
+    return gps.is_available()
+  end,
+  hl = {
+    fg = clrs.gray,
+    bg = sett.bkg,
+  },
+})
 
-		if current_line == 1 then
-			return " Top "
-		elseif current_line == vim.fn.line("$") then
-			return " Bot "
-		end
-		local result, _ = math.modf((current_line / total_line) * 100)
-		return " " .. result .. "%% "
-	end,
-	hl = {
-		fg = sett.extras,
-		bg = clrs.dark0
-	},
-}
+table.insert(winbar_components.active[2], {
+  provider = function()
+    local current_line = vim.fn.line(".")
+    local total_line = vim.fn.line("$")
+
+    if current_line == 1 then
+      return " Top "
+    elseif current_line == vim.fn.line("$") then
+      return " Bot "
+    end
+    local result, _ = math.modf((current_line / total_line) * 100)
+    return " " .. result .. "%% "
+  end,
+  hl = {
+    fg = sett.extras,
+    bg = sett.bkg
+  },
+})
+
+table.insert(winbar_components.inactive[1], {
+  provider = {
+    name = 'file_info',
+    opts = {
+      type = 'unique',
+    }
+  },
+  hl = {
+    fg = sett.curr_file,
+    bg = clrs.dark0
+  },
+  left_sep = inactive_invi_sep,
+  right_sep = inactive_invi_sep
+})
+
+table.insert(winbar_components.inactive[1], {
+  provider = function()
+    return gps.get_location()
+  end,
+  enabled = function()
+    return gps.is_available()
+  end,
+  hl = {
+    fg = clrs.gray,
+    bg = clrs.dark0
+  },
+})
+
+table.insert(winbar_components.inactive[2], {
+  provider = function()
+    local current_line = vim.fn.line(".")
+    local total_line = vim.fn.line("$")
+
+    if current_line == 1 then
+      return " Top "
+    elseif current_line == vim.fn.line("$") then
+      return " Bot "
+    end
+    local result, _ = math.modf((current_line / total_line) * 100)
+    return " " .. result .. "%% "
+  end,
+  hl = {
+    fg = sett.extras,
+    bg = clrs.dark0
+  },
+})
 
 require('feline').winbar.setup({
   components = winbar_components
