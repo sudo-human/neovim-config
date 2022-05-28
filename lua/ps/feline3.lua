@@ -1,12 +1,6 @@
 local status, feline = pcall(require, "feline")
 if not status then return end
 
--- local catppuccin, cat_colors = pcall(require,"catppuccin.api.colors")
--- if not catppuccin then
---   feline.setup()
---   return
--- end
-
 local lsp = require("feline.providers.lsp")
 local lsp_severity = vim.diagnostic.severity
 -- local b = vim.b
