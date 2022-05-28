@@ -148,7 +148,7 @@ table.insert(components.active[1], {
 -- Diagnostics ------>
 
 -- genral diagnostics (errors, warnings. info and hints)
-table.insert(components.active[2], {
+table.insert(components.active[1], {
   provider = "diagnostic_errors",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.ERROR)
@@ -161,7 +161,7 @@ table.insert(components.active[2], {
   icon = "  ",
 })
 
-table.insert(components.active[2], {
+table.insert(components.active[1], {
   provider = "diagnostic_warnings",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.WARN)
@@ -173,7 +173,7 @@ table.insert(components.active[2], {
   icon = "  ",
 })
 
-table.insert(components.active[2], {
+table.insert(components.active[1], {
   provider = "diagnostic_info",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.INFO)
@@ -185,7 +185,7 @@ table.insert(components.active[2], {
   icon = "  ",
 })
 
-table.insert(components.active[2], {
+table.insert(components.active[1], {
   provider = "diagnostic_hints",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.HINT)
