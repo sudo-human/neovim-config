@@ -134,7 +134,7 @@ return packer.startup(function(use)
   use {
     "feline-nvim/feline.nvim",
     config = function ()
-      require "ps.feline3"
+      require "ps.feline_catpuccin"
     end
   }
 
