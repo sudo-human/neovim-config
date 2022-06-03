@@ -85,7 +85,7 @@ if pcall(require, "dap") then
   keymap({"n", "i"}, "<F3>", require"dap".step_out, { silent = true, noremap = true })
   keymap({"n"}, "<leader>db", require"dap".toggle_breakpoint, opts)
   keymap({"n"}, "<leader>dB", function () require"dap".set_breakpoint(vim.fn.input("Breakpint condition: ")) end, opts)
-  keymap({"n"}, "<leader>db", function () require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts)
+  keymap({"n"}, "<leader>dl", function () require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts)
   keymap({"n"}, "<leader>dC", require"dap".clear_breakpoints, opts)
 end
 
