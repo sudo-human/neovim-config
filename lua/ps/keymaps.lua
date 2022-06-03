@@ -122,6 +122,8 @@ if status then
   keymap({"n"}, "<leader>ldS", tb.lsp_dynamic_workspace_symbols, opts)
   keymap({"n"}, "<leader>lS", tb.lsp_workspace_symbols, opts)
   keymap({"n"}, "<leader>lr", tb.lsp_references, opts)
+
+  keymap({"n"}, "<leader>R", tb.resume, opts)
 end
 
 if pcall(require, "neogit") then
