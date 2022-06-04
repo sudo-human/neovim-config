@@ -122,6 +122,7 @@ return packer.startup(function(use)
   use {
     'luisiacc/gruvbox-baby'
   }
+  use 'folke/tokyonight.nvim'
   -- Lualine
   -- use {
   --   "nvim-lualine/lualine.nvim",

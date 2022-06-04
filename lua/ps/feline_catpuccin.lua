@@ -243,7 +243,7 @@ table.insert(winbar_components.active[1], {
   provider = {
     name = 'file_info',
     opts = {
-      type = 'unique',
+      type = 'relative-short',
     }
   },
   hl = {
