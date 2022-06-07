@@ -62,6 +62,8 @@ lspconfig.sumneko_lua.setup({
   }
 })
 
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.clangd.setup{}
+lspconfig.pyright.setup{}
+lspconfig.tsserver.setup{}
+lspconfig.clangd.setup{}
+lspconfig.jsonls.setup{}
+lspconfig.rust_analyzer.setup{}
