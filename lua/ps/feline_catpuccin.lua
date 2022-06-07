@@ -256,7 +256,12 @@ table.insert(winbar_components.active[1], {
 
 table.insert(winbar_components.active[1], {
   provider = function()
-    return gps.get_location()
+    local location = gps.get_location()
+    if location ~= "" then
+      return "» " .. gps.get_location()
+    else
+      return ""
+    end
   end,
   enabled = function()
     return gps.is_available()
@@ -303,7 +308,12 @@ table.insert(winbar_components.inactive[1], {
 
 table.insert(winbar_components.inactive[1], {
   provider = function()
-    return gps.get_location()
+    local location = gps.get_location()
+    if location ~= "" then
+      return "» " .. gps.get_location()
+    else
+      return ""
+    end
   end,
   enabled = function()
     return gps.is_available()
