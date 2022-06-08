@@ -59,7 +59,7 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gl", function () vim.diagnostic.open_float(0, {scope="line", border = "rounded" }) end, opts)
   vim.keymap.set("n", "]d", function () vim.diagnostic.goto_next({ border = "rounded" }) end, opts)
   vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, opts)
-  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.formatting, opts)
+  vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts)
   vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<CR>", opts)
   vim.keymap.set("n", "<leader>lI", "<cmd>LspInstallInfo<CR>", opts)
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
