@@ -200,6 +200,7 @@ return packer.startup(function(use)
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "nvim-treesitter/nvim-treesitter-textobjects"
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Comments
   use {
