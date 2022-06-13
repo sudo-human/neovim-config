@@ -8,8 +8,8 @@ neogit.setup {
   },
   signs = {
     -- { CLOSED, OPENED }
-    section = { "⏵", "⏷" },
-    item = { "⏵", "⏷" },
+    section = { "", "" },
+    item = { "", "" },
     hunk = { "", "" },
   },
 }

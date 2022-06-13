@@ -254,23 +254,23 @@ table.insert(winbar_components.active[1], {
   right_sep = invi_sep
 })
 
-table.insert(winbar_components.active[1], {
-  provider = function()
-    local location = gps.get_location()
-    if location ~= "" then
-      return "» " .. gps.get_location()
-    else
-      return ""
-    end
-  end,
-  enabled = function()
-    return gps.is_available()
-  end,
-  hl = {
-    fg = clrs.subtext0,
-    bg = sett.bkg,
-  },
-})
+-- table.insert(winbar_components.active[1], {
+--   provider = function()
+--     local location = gps.get_location()
+--     if location ~= "" then
+--       return "» " .. gps.get_location()
+--     else
+--       return ""
+--     end
+--   end,
+--   enabled = function()
+--     return gps.is_available()
+--   end,
+--   hl = {
+--     fg = clrs.subtext0,
+--     bg = sett.bkg,
+--   },
+-- })
 
 table.insert(winbar_components.active[2], {
   provider = function()
@@ -306,23 +306,23 @@ table.insert(winbar_components.inactive[1], {
   right_sep = inactive_invi_sep
 })
 
-table.insert(winbar_components.inactive[1], {
-  provider = function()
-    local location = gps.get_location()
-    if location ~= "" then
-      return "» " .. gps.get_location()
-    else
-      return ""
-    end
-  end,
-  enabled = function()
-    return gps.is_available()
-  end,
-  hl = {
-    fg = clrs.subtext0,
-    bg = clrs.base
-  },
-})
+-- table.insert(winbar_components.inactive[1], {
+--   provider = function()
+--     local location = gps.get_location()
+--     if location ~= "" then
+--       return "» " .. gps.get_location()
+--     else
+--       return ""
+--     end
+--   end,
+--   enabled = function()
+--     return gps.is_available()
+--   end,
+--   hl = {
+--     fg = clrs.subtext0,
+--     bg = clrs.base
+--   },
+-- })
 
 table.insert(winbar_components.inactive[2], {
   provider = function()
