@@ -124,6 +124,7 @@ return packer.startup(function(use)
   }
   use 'folke/tokyonight.nvim'
   -- Lualine
+  use 'shaunsingh/nord.nvim'
   -- use {
   --   "nvim-lualine/lualine.nvim",
   --   config = function ()
