@@ -151,8 +151,8 @@ if gs_status then
   keymap({"n"}, "<leader>gd", "<cmd>Gitsigns diffthis HEAD<CR>", opts)
 end
 
-keymap({"n"}, "<leader>ot", "<cmd>TeoggleTerm direction=float<cr>", opts)
-keymap({"n"}, "<leader>ov", "<cmd>TeoggleTerm direction=vertical<cr>", opts)
-keymap({"n"}, "<leader>oh", "<cmd>TeoggleTerm direction=horizontal<cr>", opts)
+keymap({"n"}, "<leader>ot", "<cmd>ToggleTerm direction=float<cr>", opts)
+keymap({"n"}, "<leader>ov", "<cmd>ToggleTerm direction=vertical<cr>", opts)
+keymap({"n"}, "<leader>oh", "<cmd>ToggleTerm direction=horizontal<cr>", opts)
 keymap({"n"}, "<leader>oq", "<cmd>copen<cr>", opts)
 keymap({"n"}, "<leader>oe", "<cmd>NvimTreeToggle<cr>", opts)
