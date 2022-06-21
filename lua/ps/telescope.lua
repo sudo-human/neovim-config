@@ -77,7 +77,6 @@ telescope.setup {
         ["<PageUp>"] = actions.results_scrolling_up,
         ["<PageDown>"] = actions.results_scrolling_down,
 
-        ["?"] = actions.which_key,
       },
     },
   },
