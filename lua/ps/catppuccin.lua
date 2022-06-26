@@ -29,10 +29,10 @@ catppuccin.setup {
         information = "italic",
       },
       underlines = {
-        errors = "underline",
-        hints = "underline",
-        warnings = "underline",
-        information = "underline",
+        errors = "undercurl",
+        hints = "undercurl",
+        warnings = "undercurl",
+        information = "undercurl",
       },
     },
     lsp_trouble = false,
@@ -70,3 +70,7 @@ catppuccin.setup {
     telekasten = true,
     symbols_outline = true,
   }}
+
+vim.g.catppuccin_flavour = "mocha"
+
+catppuccin.load()

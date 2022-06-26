@@ -126,6 +126,24 @@ return packer.startup(function(use)
   -- Lualine
   use 'shaunsingh/nord.nvim'
   -- use {
+  --   'navarasu/onedark.nvim',
+  --   config = function ()
+  --     require "ps.onedark"
+  --   end
+  -- }
+  -- use {
+  --   "olimorris/onedarkpro.nvim",
+  --   config = function ()
+  --     require "ps.onedarkpro"
+  --   end
+  -- }
+  -- use {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function ()
+  --     require "ps.kangawa"
+  --   end
+  -- }
+  -- use {
   --   "nvim-lualine/lualine.nvim",
   --   config = function ()
   --     require "ps.lualine"
