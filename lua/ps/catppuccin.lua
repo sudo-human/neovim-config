@@ -1,6 +1,8 @@
 local status, catppuccin = pcall(require, "catppuccin")
 if not status then return end
 
+local cp = require'catppuccin.api.colors'.get_colors()
+
 catppuccin.setup {
   transparent_background = false,
   term_colors = true,
@@ -40,7 +42,7 @@ catppuccin.setup {
     lsp_saga = false,
     gitgutter = false,
     gitsigns = true,
-    telescope = true,
+    telescope = false,
     nvimtree = {
       enabled = true,
       show_root = true,
@@ -69,27 +71,33 @@ catppuccin.setup {
     notify = true,
     telekasten = true,
     symbols_outline = true,
-  }}
+  },
+  custom_highlights = {
+    DiagnosticError = { bg = "NONE", fg = cp.red },
+    DiagnosticWarn = { bg = "NONE", fg = cp.yellow },
+    DiagnosticInfo = { bg = "NONE", fg = cp.sky },
+    DiagnosticHint = { bg = "NONE", fg = cp.teal },
+  }
+}
 
 vim.g.catppuccin_flavour = "mocha"
 
-local cp = require'catppuccin.api.colors'.get_colors()
-local util = require("catppuccin.utils.util")
-local error = cp.red
-local warning = cp.yellow
-local info = cp.sky
-local hint = cp.teal
-local darkening_percentage = 0.095
-catppuccin.remap({
-  DiagnosticVirtualTextError = { bg = util.darken(error, darkening_percentage, cp.base), fg = error, style = "undercurl" },
-  DiagnosticVirtualTextWarn = { bg = util.darken(warning, darkening_percentage, cp.base), fg = warning, style = "undercurl" },
-  DiagnosticVirtualTextInfo = { bg = util.darken(info, darkening_percentage, cp.base), fg = info, style = "undercurl" },
-  DiagnosticVirtualTextHint = { bg = util.darken(hint, darkening_percentage, cp.base), fg = hint, style = "undercurl" },
-
-  DiagnosticError = { bg = "NONE", fg = error, style = "italic" },
-  DiagnosticWarn = { bg = "NONE", fg = warning, style = "italic" },
-  DiagnosticInfo = { bg = "NONE", fg = info, style = "italic" },
-  DiagnosticHint = { bg = "NONE", fg = hint, style = "italic" },
-})
+-- local util = require("catppuccin.utils.util")
+-- local error = cp.red
+-- local warning = cp.yellow
+-- local info = cp.sky
+-- local hint = cp.teal
+-- local darkening_percentage = 0.095
+-- catppuccin.remap({
+--   DiagnosticVirtualTextError = { bg = util.darken(error, darkening_percentage, cp.base), fg = error, style = "undercurl" },
+--   DiagnosticVirtualTextWarn = { bg = util.darken(warning, darkening_percentage, cp.base), fg = warning, style = "undercurl" },
+--   DiagnosticVirtualTextInfo = { bg = util.darken(info, darkening_percentage, cp.base), fg = info, style = "undercurl" },
+--   DiagnosticVirtualTextHint = { bg = util.darken(hint, darkening_percentage, cp.base), fg = hint, style = "undercurl" },
+--
+--   DiagnosticError = { bg = "NONE", fg = error, style = "italic" },
+--   DiagnosticWarn = { bg = "NONE", fg = warning, style = "italic" },
+--   DiagnosticInfo = { bg = "NONE", fg = info, style = "italic" },
+--   DiagnosticHint = { bg = "NONE", fg = hint, style = "italic" },
+-- })
 
 catppuccin.load()
