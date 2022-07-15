@@ -42,7 +42,7 @@ catppuccin.setup {
     lsp_saga = false,
     gitgutter = false,
     gitsigns = true,
-    telescope = false,
+    telescope = true,
     nvimtree = {
       enabled = true,
       show_root = true,
