@@ -92,6 +92,7 @@ catppuccin.setup {
     GitSignsAdd = { bg="NONE", fg = cp.green },
     GitSignsChange = { bg="NONE", fg = cp.yellow },
     GitSignsDelete = { bg="NONE", fg = cp.red },
+		TSParameter = { fg = cp.text, style = {} }, -- For parameters of a function.
   }
 }
 
