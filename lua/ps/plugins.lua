@@ -115,7 +115,7 @@ return packer.startup(function(use)
   })
 
   use 'Mofiqul/adwaita.nvim'
-
+  use 'Yazeed1s/minimal.nvim'
   use 'bluz71/vim-moonfly-colors'
   use 'bluz71/vim-nightfly-guicolors'
   use { "ellisonleao/gruvbox.nvim" }

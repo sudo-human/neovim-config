@@ -8,13 +8,14 @@ local gps = require("nvim-gps")
 -- local clrs = cat_colors.get_colors()
 -- local gruvbox_clrs = require("gruvbox.colors")
 
-local catppuccin, cat_colors = pcall(require,"catppuccin.api.colors")
+local catppuccin, cat_colors = pcall(require,"catppuccin.palettes")
 if not catppuccin then
   feline.setup()
   return
 end
 
-local clrs = cat_colors.get_colors()
+
+local clrs = cat_colors.get_palette()
 
 -- settings
 local sett = {
