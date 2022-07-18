@@ -64,6 +64,10 @@ catppuccin.setup {
       show_root = true,
       transparent_panel = false,
     },
+    dap = {
+      enabled = true,
+      enable_ui = true,
+    },
     which_key = false,
     indent_blankline = {
       enabled = true,
@@ -116,4 +120,4 @@ vim.g.catppuccin_flavour = "mocha"
 --   DiagnosticHint = { bg = "NONE", fg = hint, style = "italic" },
 -- })
 
-catppuccin.load()
+-- catppuccin.load()
