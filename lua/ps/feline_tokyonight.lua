@@ -3,7 +3,7 @@ if not status then return end
 
 local lsp = require("feline.providers.lsp")
 local lsp_severity = vim.diagnostic.severity
-local colors = require("tokyonight.colors").setup({})
+local colors = require("tokyonight.colors").setup({ style = "night" })
 local utils = require("tokyonight.util")
 
 local sett = {
