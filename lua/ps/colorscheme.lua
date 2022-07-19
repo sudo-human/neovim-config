@@ -6,12 +6,15 @@
 -- vim.g.gruvbox_improved_strings = true
 -- vim.g.gruvbox_contrast_dark = "hard"
 vim.g.tokyonight_style = "night"
+local colors = require("tokyonight.colors").setup({})
+
 vim.cmd [[
 try
   colorscheme tokyonight
-catch /^Vim\%((\a\+)\)\=:E185/
+catch /^vim\%((\a\+)\)\=:e185/
   colorscheme default
   set background=dark
 endtry
 ]]
 
+vim.cmd("hi cursorline guibg=" .. colors.bg_dark .. " guifg=none")

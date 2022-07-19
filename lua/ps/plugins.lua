@@ -113,7 +113,7 @@ return packer.startup(function(use)
       require "ps.catppuccin"
     end
   })
-
+  use 'Mofiqul/dracula.nvim'
   use 'Mofiqul/adwaita.nvim'
   use 'Yazeed1s/minimal.nvim'
   use 'bluz71/vim-moonfly-colors'
@@ -154,7 +154,7 @@ return packer.startup(function(use)
   use {
     "feline-nvim/feline.nvim",
     config = function ()
-      require "ps.feline_catpuccin"
+      require "ps.feline_tokyonight"
     end
   }
 
