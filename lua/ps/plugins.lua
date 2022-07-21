@@ -123,8 +123,13 @@ return packer.startup(function(use)
     'luisiacc/gruvbox-baby'
   }
   use 'folke/tokyonight.nvim'
-  -- Lualine
   use 'shaunsingh/nord.nvim'
+  use {
+    'marko-cerovac/material.nvim',
+    config = function ()
+      require("ps.material")
+    end
+  }
   -- use {
   --   'navarasu/onedark.nvim',
   --   config = function ()
