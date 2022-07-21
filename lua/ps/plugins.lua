@@ -103,7 +103,7 @@ return packer.startup(function(use)
       vim.g.cursorhold_updatetime = 100
     end
   }
-  use 'norcalli/nvim-colorizer.lua'
+  -- use 'norcalli/nvim-colorizer.lua'
 
   -- Colorschemes
   use({
@@ -113,23 +113,23 @@ return packer.startup(function(use)
       require "ps.catppuccin"
     end
   })
-  use 'Mofiqul/dracula.nvim'
-  use 'Mofiqul/adwaita.nvim'
-  use 'Yazeed1s/minimal.nvim'
-  use 'bluz71/vim-moonfly-colors'
-  use 'bluz71/vim-nightfly-guicolors'
-  use { "ellisonleao/gruvbox.nvim" }
-  use {
-    'luisiacc/gruvbox-baby'
-  }
+  -- use 'Mofiqul/dracula.nvim'
+  -- use 'Mofiqul/adwaita.nvim'
+  -- use 'Yazeed1s/minimal.nvim'
+  -- use 'bluz71/vim-moonfly-colors'
+  -- use 'bluz71/vim-nightfly-guicolors'
+  -- use { "ellisonleao/gruvbox.nvim" }
+  -- use {
+  --   'luisiacc/gruvbox-baby'
+  -- }
   use 'folke/tokyonight.nvim'
-  use 'shaunsingh/nord.nvim'
-  use {
-    'marko-cerovac/material.nvim',
-    config = function ()
-      require("ps.material")
-    end
-  }
+  -- use 'shaunsingh/nord.nvim'
+  -- use {
+  --   'marko-cerovac/material.nvim',
+  --   config = function ()
+  --     require("ps.material")
+  --   end
+  -- }
   -- use {
   --   'navarasu/onedark.nvim',
   --   config = function ()
@@ -148,20 +148,22 @@ return packer.startup(function(use)
   --     require "ps.kangawa"
   --   end
   -- }
-  -- use {
-  --   "nvim-lualine/lualine.nvim",
-  --   config = function ()
-  --     require "ps.lualine"
-  --   end
-  -- }
 
-  -- Feline
+  -- Lualine
   use {
-    "feline-nvim/feline.nvim",
+    "nvim-lualine/lualine.nvim",
     config = function ()
-      require "ps.feline_tokyonight"
+      require "ps.lualine"
     end
   }
+
+  -- Feline
+  -- use {
+  --   "feline-nvim/feline.nvim",
+  --   config = function ()
+  --     require "ps.feline_tokyonight"
+  --   end
+  -- }
 
   -- Complition
   use "hrsh7th/nvim-cmp"
