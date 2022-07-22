@@ -1,10 +1,12 @@
 local status, feline = pcall(require, "feline")
-if not status then return end
+if not status then
+	return
+end
 
-local catppuccin, cat_colors = pcall(require,"catppuccin.api.colors")
+local catppuccin, cat_colors = pcall(require, "catppuccin.api.colors")
 if not catppuccin then
-  feline.setup()
-  return
+	feline.setup()
+	return
 end
 
 local lsp = require("feline.providers.lsp")
@@ -33,7 +35,7 @@ local assets = {
 	slant_right_2 = "",
 	slant_right_2_thin = "",
 	chubby_dot = "●",
-	slim_dot = '•',
+	slim_dot = "•",
 }
 
 local clrs = cat_colors.get_colors()
@@ -86,7 +88,7 @@ local invi_sep = {
 	str = " ",
 	hl = {
 		fg = sett.bkg,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 }
 
@@ -94,16 +96,18 @@ local invi_sep = {
 local function any_git_changes()
 	local gst = b.gitsigns_status_dict -- git stats
 	if gst then
-		if gst["added"] and gst["added"] > 0 or gst["removed"] and gst["removed"] > 0 or gst["changed"] and gst["changed"] > 0 then
+		if
+			gst["added"] and gst["added"] > 0
+			or gst["removed"] and gst["removed"] > 0
+			or gst["changed"] and gst["changed"] > 0
+		then
 			return true
 		end
 	end
 	return false
 end
 
-
 -- #################### STATUSLINE ->
-
 
 -- ######## Left
 
@@ -112,7 +116,7 @@ local vi_mode_hl = function()
 	return {
 		fg = sett.bkg,
 		bg = mode_colors[vim.fn.mode()][2],
-		style = "bold"
+		style = "bold",
 	}
 end
 
@@ -135,14 +139,14 @@ components.active[1][1] = {
 	hl = function()
 		return {
 			fg = mode_colors[vim.fn.mode()][2],
-      bg = sett.bkg,
+			bg = sett.bkg,
 		}
 	end,
-  -- hl = {
-  --   fg = sett.extras,
-  --   bg = sett.bkg,
-  -- },
-  left_sep = invi_sep
+	-- hl = {
+	--   fg = sett.extras,
+	--   bg = sett.bkg,
+	-- },
+	left_sep = invi_sep,
 }
 
 components.active[1][2] = {
@@ -150,11 +154,11 @@ components.active[1][2] = {
 		return " " .. mode_colors[vim.fn.mode()][1] .. " "
 	end,
 	-- hl = vi_mode_hl,
-  hl = {
-    fg = sett.extras,
-    bg = sett.bkg,
-  },
-  right_sep = invi_sep
+	hl = {
+		fg = sett.extras,
+		bg = sett.bkg,
+	},
+	right_sep = invi_sep,
 }
 
 -- there is a dilema: we need to hide Diffs if ther is no git info. We can do that, but this will
@@ -232,7 +236,6 @@ components.active[1][2] = {
 -- }
 -- Diffs ------>
 
-
 -- GPS
 
 components.active[1][3] = {
@@ -246,7 +249,7 @@ components.active[1][3] = {
 		fg = clrs.rosewater,
 		bg = sett.bkg,
 	},
-  -- left_sep = invi_sep,
+	-- left_sep = invi_sep,
 }
 
 -- workspace loader
@@ -291,9 +294,9 @@ components.active[1][3] = {
 -- }
 
 components.active[1][4] = {
-  hl = {
-    bg = sett.bkg
-  }
+	hl = {
+		bg = sett.bkg,
+	},
 }
 
 -- ######## Left
@@ -314,7 +317,7 @@ components.active[2][1] = {
 		bg = sett.bkg,
 	},
 	icon = "  ",
-  -- left_sep = invi_sep,
+	-- left_sep = invi_sep,
 }
 
 components.active[2][2] = {
@@ -401,11 +404,11 @@ components.active[2][8] = {
 	end,
 	hl = {
 		fg = sett.extras,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 	icon = "  ",
 	left_sep = invi_sep,
-  right_sep = invi_sep,
+	right_sep = invi_sep,
 }
 
 -- components.active[2][2] = {
@@ -450,12 +453,12 @@ components.active[2][9] = {
 	-- 	end
 	-- 	return " " .. icon .. " " .. filename .. " "
 	-- end,
-  provider = {
-    name = 'file_info',
-    opts = {
-      type = 'unique',
-    }
-  },
+	provider = {
+		name = "file_info",
+		opts = {
+			type = "unique",
+		},
+	},
 	-- enabled = shortline or function()
 	-- 	return vim.api.nvim_win_get_width(0) > 70
 	-- end,
@@ -470,7 +473,7 @@ components.active[2][9] = {
 	-- 		bg = sett.bkg,
 	-- 	},
 	-- },
-  left_sep = invi_sep
+	left_sep = invi_sep,
 }
 
 -- components.active[2][6] = {
@@ -497,7 +500,7 @@ components.active[2][9] = {
 -- }
 
 components.active[2][10] = {
-  provider = function()
+	provider = function()
 		local current_line = vim.fn.line(".")
 		local total_line = vim.fn.line("$")
 
@@ -514,7 +517,7 @@ components.active[2][10] = {
 	-- end,
 	hl = {
 		fg = sett.extras,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 	left_sep = invi_sep,
 }
@@ -522,21 +525,21 @@ components.active[2][10] = {
 
 feline.setup({
 	components = components,
-  force_inactive = {
-    filetypes = {
-      '^NvimTree$',
-      '^packer$',
-      '^startify$',
-      '^fugitive$',
-      '^fugitiveblame$',
-      '^qf$',
-      '^help$',
-      '^aerial$',
-    },
-    buftypes = {
-      -- '^terminal$',
-      '^netrw$'
-    },
-    bufnames = {}
-  }
+	force_inactive = {
+		filetypes = {
+			"^NvimTree$",
+			"^packer$",
+			"^startify$",
+			"^fugitive$",
+			"^fugitiveblame$",
+			"^qf$",
+			"^help$",
+			"^aerial$",
+		},
+		buftypes = {
+			-- '^terminal$',
+			"^netrw$",
+		},
+		bufnames = {},
+	},
 })

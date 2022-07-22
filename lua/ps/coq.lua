@@ -4,9 +4,6 @@
 --end
 
 vim.g.coq_settings = {
-  auto_start = "shut-up",
-  xdg = true
+	auto_start = "shut-up",
+	xdg = true,
 }
-
-
-

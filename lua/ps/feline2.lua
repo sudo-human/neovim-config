@@ -1,10 +1,12 @@
 local status, feline = pcall(require, "feline")
-if not status then return end
+if not status then
+	return
+end
 
-local catppuccin, cat_colors = pcall(require,"catppuccin.api.colors")
+local catppuccin, cat_colors = pcall(require, "catppuccin.api.colors")
 if not catppuccin then
-  feline.setup()
-  return
+	feline.setup()
+	return
 end
 
 local lsp = require("feline.providers.lsp")
@@ -61,7 +63,7 @@ local invi_sep = {
 	str = " ",
 	hl = {
 		fg = sett.bkg,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 }
 
@@ -71,32 +73,32 @@ local invi_sep = {
 
 -- Vim icon
 components.active[1][1] = {
-  provider = "",
-  hl = function()
-    return {
-      fg = mode_colors[vim.fn.mode()][2],
-      bg = sett.bkg,
-    }
-  end,
-  left_sep = invi_sep
+	provider = "",
+	hl = function()
+		return {
+			fg = mode_colors[vim.fn.mode()][2],
+			bg = sett.bkg,
+		}
+	end,
+	left_sep = invi_sep,
 }
 
 -- Current vim mode
 components.active[1][2] = {
-  provider = function()
-    return " " .. mode_colors[vim.fn.mode()][1] .. " "
-  end,
-  -- hl = {
-  --   fg = sett.extras,
-  --   bg = sett.bkg,
-  -- },
-  hl = function()
-    return {
-      fg = mode_colors[vim.fn.mode()][2],
-      bg = sett.bkg,
-    }
-  end,
-  right_sep = invi_sep
+	provider = function()
+		return " " .. mode_colors[vim.fn.mode()][1] .. " "
+	end,
+	-- hl = {
+	--   fg = sett.extras,
+	--   bg = sett.bkg,
+	-- },
+	hl = function()
+		return {
+			fg = mode_colors[vim.fn.mode()][2],
+			bg = sett.bkg,
+		}
+	end,
+	right_sep = invi_sep,
 }
 
 -- nvim-gps component
@@ -204,31 +206,31 @@ components.active[2][8] = {
 	end,
 	hl = {
 		fg = sett.extras,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 	icon = "  ",
 	left_sep = invi_sep,
-  right_sep = invi_sep,
+	right_sep = invi_sep,
 }
 
 -- Current file
 components.active[2][9] = {
-  provider = {
-    name = 'file_info',
-    opts = {
-      type = 'unique',
-    }
-  },
+	provider = {
+		name = "file_info",
+		opts = {
+			type = "unique",
+		},
+	},
 	hl = {
 		fg = sett.curr_file,
 		bg = sett.bkg,
 	},
-  left_sep = invi_sep
+	left_sep = invi_sep,
 }
 
 -- File percentage
 components.active[2][10] = {
-  provider = function()
+	provider = function()
 		local current_line = vim.fn.line(".")
 		local total_line = vim.fn.line("$")
 
@@ -242,7 +244,7 @@ components.active[2][10] = {
 	end,
 	hl = {
 		fg = sett.extras,
-		bg = sett.bkg
+		bg = sett.bkg,
 	},
 	left_sep = invi_sep,
 }
@@ -251,21 +253,21 @@ components.active[2][10] = {
 
 feline.setup({
 	components = components,
-  force_inactive = {
-    filetypes = {
-      '^NvimTree$',
-      '^packer$',
-      '^startify$',
-      '^fugitive$',
-      '^fugitiveblame$',
-      '^qf$',
-      '^help$',
-      '^aerial$',
-    },
-    buftypes = {
-      -- '^terminal$',
-      '^netrw$'
-    },
-    bufnames = {}
-  }
+	force_inactive = {
+		filetypes = {
+			"^NvimTree$",
+			"^packer$",
+			"^startify$",
+			"^fugitive$",
+			"^fugitiveblame$",
+			"^qf$",
+			"^help$",
+			"^aerial$",
+		},
+		buftypes = {
+			-- '^terminal$',
+			"^netrw$",
+		},
+		bufnames = {},
+	},
 })

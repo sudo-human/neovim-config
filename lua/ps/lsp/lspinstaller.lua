@@ -1,16 +1,22 @@
 local lsp_installer_status, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not lsp_installer_status then return end
+if not lsp_installer_status then
+	return
+end
 
 local nlspsettings_status, nlspsettings = pcall(require, "nlspsettings")
-if not nlspsettings_status then return end
+if not nlspsettings_status then
+	return
+end
 
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then return end
+if not lspconfig_status then
+	return
+end
 
 nlspsettings.setup({
-  config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
-  local_settings_root_markers = { '.git' },
-  jsonls_append_default_schemas = true
+	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
+	local_settings_root_markers = { ".git" },
+	jsonls_append_default_schemas = true,
 })
 
 -- Register a handler that will be called for all installed servers.
@@ -34,20 +40,15 @@ nlspsettings.setup({
 --   server:setup(opts)
 -- end)
 
-lsp_installer.setup{}
+lsp_installer.setup({})
 
-
-lspconfig.util.default_config = vim.tbl_extend(
-  "force",
-  lspconfig.util.default_config,
-  {
-    on_attach = require("ps.lsp.handlers").on_attach,
-    capabilities = require("ps.lsp.handlers").capabilities,
-  }
-)
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+	on_attach = require("ps.lsp.handlers").on_attach,
+	capabilities = require("ps.lsp.handlers").capabilities,
+})
 
 lspconfig.sumneko_lua.setup({
-  settings = {
+	settings = {
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
@@ -59,11 +60,11 @@ lspconfig.sumneko_lua.setup({
 				},
 			},
 		},
-  }
+	},
 })
 
-lspconfig.pyright.setup{}
-lspconfig.tsserver.setup{}
-lspconfig.clangd.setup{}
-lspconfig.jsonls.setup{}
-lspconfig.rust_analyzer.setup{}
+lspconfig.pyright.setup({})
+lspconfig.tsserver.setup({})
+lspconfig.clangd.setup({})
+lspconfig.jsonls.setup({})
+lspconfig.rust_analyzer.setup({})

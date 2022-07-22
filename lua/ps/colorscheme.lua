@@ -7,17 +7,17 @@
 -- vim.g.gruvbox_contrast_dark = "hard"
 vim.g.tokyonight_style = "night"
 local colors = require("tokyonight.colors").setup({
-  style = "night"
+	style = "night",
 })
 local util = require("tokyonight.util")
 
-vim.cmd [[
+vim.cmd([[
 try
   colorscheme tokyonight
 catch /^vim\%((\a\+)\)\=:e185/
   colorscheme default
   set background=dark
 endtry
-]]
+]])
 
 vim.api.nvim_set_hl(0, "CursorLine", { bg = util.brighten(colors.bg, 0.02) })
