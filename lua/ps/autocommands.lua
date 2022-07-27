@@ -1,4 +1,4 @@
-local _general_settings = vim.api.nvim_create_augroup("_general_settings")
+local _general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
   group = _general_settings,
@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("_git_and_markdown"),
+  group = vim.api.nvim_create_augroup("_git_and_markdown", { clear = true }),
   pattern = "gitcommit, markdown",
   callback = function ()
     vim.opt_local.wrap = true
