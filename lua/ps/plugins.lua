@@ -53,12 +53,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use("lewis6991/impatient.nvim")
-	use({
-		"kyazdani42/nvim-tree.lua",
-		config = function()
-			require("ps.nvim-tree")
-		end,
-	})
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	config = function()
+	-- 		require("ps.nvim-tree")
+	-- 	end,
+	-- })
 	use({
 		"ThePrimeagen/harpoon",
 		config = function()
@@ -108,13 +108,29 @@ return packer.startup(function(use)
 	-- use 'norcalli/nvim-colorizer.lua'
 
 	-- Colorschemes
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-			require("ps.catppuccin")
-		end,
-	})
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	config = function()
+	-- 		require("ps.catppuccin")
+	-- 	end,
+	-- })
+
+  -- use {
+  --   'maxmx03/solarized.nvim',
+  --   config = function ()
+  --     local success, solarized = pcall(require, 'solarized')
+  --
+  --     if not success then
+  --       return
+  --     end
+  --
+  --     solarized:setup({
+  --       mode = 'dark',
+  --       style = 'vscode',
+  --     })
+  --   end
+  -- }
 	-- use 'Mofiqul/dracula.nvim'
 	-- use 'Mofiqul/adwaita.nvim'
 	-- use 'Yazeed1s/minimal.nvim'
