@@ -6,6 +6,7 @@
 -- vim.g.gruvbox_improved_strings = true
 -- vim.g.gruvbox_contrast_dark = "hard"
 vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_keywords = false
 local colors = require("tokyonight.colors").setup({
 	style = "night",
 })
