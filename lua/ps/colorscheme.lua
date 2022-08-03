@@ -21,4 +21,4 @@ catch /^vim\%((\a\+)\)\=:e185/
 endtry
 ]])
 
-vim.api.nvim_set_hl(0, "CursorLine", { bg = util.brighten(colors.bg, 0.02) })
+-- vim.api.nvim_set_hl(0, "CursorLine", { bg = util.brighten(colors.bg, 0.02) })
