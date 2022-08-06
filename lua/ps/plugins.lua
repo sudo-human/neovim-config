@@ -169,6 +169,12 @@ return packer.startup(function(use)
   --     require "ps.kangawa"
   --   end
   -- }
+  -- use({
+  --   "tanvirtin/monokai.nvim",
+  --   config = function()
+  --     require("ps.monokai")
+  --   end,
+  -- })
 
   -- Lualine
   use({
