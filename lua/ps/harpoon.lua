@@ -1,10 +1,10 @@
 local status, harpoon = pcall(require, "harpoon")
 if not status then
-	return
+  return
 end
 
 harpoon.setup({
-	menu = {
-		width = math.floor(vim.api.nvim_win_get_width(0) * 0.4),
-	},
+  menu = {
+    width = math.floor(vim.api.nvim_win_get_width(0) * 0.4),
+  },
 })

@@ -1,34 +1,37 @@
-local _general_settings = vim.api.nvim_create_augroup("_general_settings", { clear = true })
+local _general_settings = vim.api.nvim_create_augroup(
+  "_general_settings",
+  { clear = true }
+)
 
 vim.api.nvim_create_autocmd("FileType", {
   group = _general_settings,
   pattern = { "qf", "help", "man", "lspinfo" },
-  callback = function ()
+  callback = function()
     vim.keymap.set("n", "q", ":close<cr>", { buffer = 0 })
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = _general_settings,
-  callback = function ()
-    require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
-  end
+  callback = function()
+    require("vim.highlight").on_yank({ higroup = "Visual", timeout = 200 })
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("_git_and_markdown", { clear = true }),
   pattern = "gitcommit, markdown",
-  callback = function ()
+  callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
-  end
+  end,
 })
 
 -- vim.cmd([[
 --   augroup _general_settings
 --     autocmd!
---     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
---     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
+--     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
+--     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
 --     autocmd BufWinEnter * :set formatoptions-=cro
 --     autocmd FileType qf set nobuflisted
 --   augroup end
@@ -44,7 +47,7 @@ vim.api.nvim_create_autocmd("FileType", {
 --   augroup end
 --   augroup _auto_resize
 --     autocmd!
---     autocmd VimResized * tabdo wincmd = 
+--     autocmd VimResized * tabdo wincmd =
 --   augroup end
 -- ]])
 

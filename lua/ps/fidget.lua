@@ -1,10 +1,10 @@
 local status, fidget = pcall(require, "fidget")
 if not status then
-	return
+  return
 end
 
 fidget.setup({
-	text = {
-		spinner = "dots",
-	},
+  text = {
+    spinner = "dots",
+  },
 })
